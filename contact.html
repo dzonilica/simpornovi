@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>GET IN <em>TOUCH</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="available.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="available.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — MINIMAL -->
+<div class="hero-minimal" id="pageHero">
+  <div class="hero-minimal-grid-bg"></div>
+  <div class="hero-minimal-content">
+    <div class="hero-minimal-coords">44.8125° N / 20.4612° E — Šumadija, Serbia</div>
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:18px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Contact</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:24px;">FCI 3428 · Est. 1994</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(48px,8vw,100px);">
+      Get In <em>Touch</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:18px;max-width:440px;">
+      From working dogs to training programs — we're here for every question.
+    </p>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="contact-page" style="padding-top:120px;">
+  <div class="contact-page-wrap">
+    <div class="contact-info">
+      <p class="eyebrow fade-up">Reach Out</p>
+      <h2 class="section-h fade-up">Let's Talk<br/><em>Dogs</em></h2>
+      <p class="contact-desc fade-up">Whether you're an international client seeking a championship dog, a handler preparing for competition, or a family looking for a reliable companion — every enquiry is welcome.</p>
+
+      <div class="c-details fade-up">
+        <div class="c-item">
+          <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="c-item-body"><strong>Location</strong><span>Šumadija, Serbia · International clients welcome</span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.17 6.17l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="c-item-body"><strong>Phone / WhatsApp</strong><span><a href="tel:+381">+381 (contact for number)</a></span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="c-item-body"><strong>Email</strong><span><a href="mailto:info@simpor.com">info@simpor.com</a></span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="c-item-body"><strong>FCI Registration</strong><span>FCI 3428 · Von Simpor Kennel · Est. 1994</span></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C99112" stroke="none"/></svg></div>
+          <div class="c-item-body"><strong>Social Media</strong><span><a href="#">Follow us on Instagram</a></span></div>
+        </div>
+      </div>
+
+      <div class="contact-map-ph fade-up">
+        <svg width="28" height="36" viewBox="0 0 28 36" fill="none"><path d="M14 0C6.268 0 0 6.268 0 14C0 24.5 14 36 14 36C14 36 28 24.5 28 14C28 6.268 21.732 0 14 0ZM14 19C11.238 19 9 16.762 9 14C9 11.238 11.238 9 14 9C16.762 9 19 11.238 19 14C19 16.762 16.762 19 14 19Z" fill="#C99112" opacity="0.5"/></svg>
+        <span>Šumadija, Serbia</span>
+        <span style="font-size:10px;opacity:0.5;letter-spacing:1px;">Exact address provided on enquiry</span>
+      </div>
+    </div>
+
+    <div class="contact-form fade-up">
+      <h3 style="font-family:var(--font-d);font-size:32px;font-weight:300;color:var(--off-white);margin-bottom:36px;">Send an Enquiry</h3>
+      <form onsubmit="handleForm(event)">
+        <div class="form-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Your first name"/></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Your last name"/></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+1 ..."/></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Country</label><input type="text" placeholder="Your country"/></div>
+          <div class="fg"><label>Area of Interest</label>
+            <select>
+              <option value="">Select a topic</option>
+              <option>Sport / Competition Dog</option>
+              <option>K9 / Protection Dog</option>
+              <option>Family Dog</option>
+              <option>Kennel / Breeding</option>
+              <option>Obedience Training</option>
+              <option>Protection Training</option>
+              <option>Dog Resort</option>
+              <option>KKL / ZTP Preparation</option>
+              <option>Import / Export</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="fg"><label>Your Message</label>
+            <textarea style="min-height:160px;" placeholder="Tell us about your goals, your dog, your requirements, or any questions…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit"><span id="btnText">Send Enquiry</span></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LINKS TO OTHER PAGES -->
+  <div style="max-width:1280px;margin:80px auto 0;padding:0 80px;">
+    <p class="eyebrow fade-up" style="justify-content:center;margin-bottom:48px;">Explore Simpor</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;" class="fade-up">
+      <a href="training.html" style="background:var(--card);padding:36px;display:block;transition:background 0.3s;text-decoration:none;" onmouseover="this.style.background='var(--card-hover)'" onmouseout="this.style.background='var(--card)'">
+        <div style="font-family:var(--font-d);font-size:22px;color:var(--gold);margin-bottom:8px;">Training</div>
+        <div style="font-size:12px;color:var(--text-3);letter-spacing:1px;">Obedience · Protection · K9</div>
+      </a>
+      <a href="kennel.html" style="background:var(--card);padding:36px;display:block;transition:background 0.3s;text-decoration:none;" onmouseover="this.style.background='var(--card-hover)'" onmouseout="this.style.background='var(--card)'">
+        <div style="font-family:var(--font-d);font-size:22px;color:var(--gold);margin-bottom:8px;">Kennel</div>
+        <div style="font-size:12px;color:var(--text-3);letter-spacing:1px;">Von Simpor · KKL · Breeding</div>
+      </a>
+      <a href="resort.html" style="background:var(--card);padding:36px;display:block;transition:background 0.3s;text-decoration:none;" onmouseover="this.style.background='var(--card-hover)'" onmouseout="this.style.background='var(--card)'">
+        <div style="font-family:var(--font-d);font-size:22px;color:var(--gold);margin-bottom:8px;">Dog Resort</div>
+        <div style="font-size:12px;color:var(--text-3);letter-spacing:1px;">Boarding · Care · Recovery</div>
+      </a>
+      <a href="gallery.html" style="background:var(--card);padding:36px;display:block;transition:background 0.3s;text-decoration:none;" onmouseover="this.style.background='var(--card-hover)'" onmouseout="this.style.background='var(--card)'">
+        <div style="font-family:var(--font-d);font-size:22px;color:var(--gold);margin-bottom:8px;">Gallery</div>
+        <div style="font-size:12px;color:var(--text-3);letter-spacing:1px;">All Photos · 30+ Years</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="inner-footer" style="margin-top:100px;">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2025 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

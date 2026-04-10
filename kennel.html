@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kennel & Breeding — Von Simpor · Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>VON <em>SIMPOR</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html" style="color:var(--gold)">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — DIAGONAL -->
+<div class="hero-diag" id="pageHero">
+  <div class="hero-diag-img">
+    <img src="kenel.jpg" alt="Von Simpor Bloodlines" id="heroParallaxImg"/>
+  </div>
+  <div class="hero-diag-overlay"></div>
+  <div class="hero-diag-line"></div>
+  <div class="hero-diag-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:24px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Kennel</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:28px;">FCI 3428 · Von Simpor</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(46px,7vw,90px);">
+      Von Simpor<br/><em>Kennel</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:20px;">
+      Distinctive bloodlines built over 30 years — known worldwide for outstanding results.
+    </p>
+  </div>
+  <div class="hero-diag-fci">
+    <div class="hero-diag-fci-n">FCI 3428</div>
+    <div class="hero-diag-fci-l">Certified Kennel</div>
+  </div>
+</div>
+
+<!-- KENNEL INTRO -->
+<div class="kennel-intro">
+  <div class="kennel-intro-wrap">
+    <div class="fade-right">
+      <div class="kennel-img-main clip-reveal">
+        <img src="s3.jpg" alt="Von Simpor German Shepherd"/>
+        <div class="kennel-cert">FCI 3428 Certified</div>
+      </div>
+    </div>
+    <div class="fade-left">
+      <p class="eyebrow">The Von Simpor Kennel</p>
+      <h2 class="section-h">Bloodlines That <em>Win</em><br/>Around the World</h2>
+      <div class="about-body" style="margin-top:24px;">
+        <p>The Von Simpor kennel, founded by Dejan Simović, has spent over three decades building one of the most respected German Shepherd bloodlines in international cynology. Selection is based on three non-negotiable pillars: stable temperament, exceptional working drives, and correct anatomy.</p>
+        <p>Dogs from Von Simpor have placed in the World Top 10 more than 20 times, won at Crufts — the world's most prestigious show — claimed the Czech National Working Championship, and represented our breeding program on every continent. Every breeding decision is made with the long-term quality of the breed as the primary goal.</p>
+        <p>We work exclusively with KKL-certified breeding stock and follow all international FCI regulations for breeding, selection, and testing. Our dogs are exported and recognized in Germany, South Korea, China, Mongolia, Portugal, Sweden, the USA, and across South America.</p>
+      </div>
+      <div class="kennel-features fade-up">
+        <div class="kennel-feat"><strong>KKL</strong><span>Certified Breeding Stock</span></div>
+        <div class="kennel-feat"><strong>ZTP</strong><span>Temperament Tested</span></div>
+        <div class="kennel-feat"><strong>20+</strong><span>World Top 10 Placements</span></div>
+        <div class="kennel-feat"><strong>6</strong><span>Continents Represented</span></div>
+        <div class="kennel-feat"><strong>IGP</strong><span>Working Bloodlines</span></div>
+        <div class="kennel-feat"><strong>Int.</strong><span>Export Worldwide</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">German Shepherd <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Von Simpor Bloodlines <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Stable Temperament <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">KKL Certified <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Working Drives <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Correct Anatomy <span class="marquee-dot"></span></span>
+    <span class="marquee-item">FCI 3428 <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">World Top 10 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">German Shepherd <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Von Simpor Bloodlines <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Stable Temperament <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">KKL Certified <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div class="achievements-strip">
+  <div class="ach-wrap">
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
+      <div class="ach-text"><strong>Paris Von Simpor</strong><span>1st Serbian dog to win Crufts — UK</span></div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+      <div class="ach-text"><strong>Kendy Z. Kraje Husitu</strong><span>Czech National Working Champion</span></div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <div class="ach-text"><strong>Export Worldwide</strong><span>Germany, Korea, China, USA, Americas</span></div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+      <div class="ach-text"><strong>30+ Year Legacy</strong><span>Consistent quality since 1994</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOODLINES GALLERY -->
+<div class="bloodlines-section">
+  <div class="bloodlines-wrap">
+    <p class="eyebrow fade-up">Von Simpor Dogs</p>
+    <h2 class="section-h fade-up">Champions from Our <em>Bloodlines</em></h2>
+    <div class="bloodlines-grid">
+      <div class="bl-item clip-reveal"><img src="op1.jpg" alt="Von Simpor"/></div>
+      <div class="bl-item clip-reveal"><img src="op2.jpg" alt="German Shepherd"/></div>
+      <div class="bl-item clip-reveal"><img src="op3.jpg" alt="Working Dog"/></div>
+      <div class="bl-item clip-reveal"><img src="pocetna2.jpg" alt="Champion"/></div>
+      <div class="bl-item clip-reveal"><img src="g15.jpeg" alt="Sport Dog"/></div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS SECTION -->
+<section class="kennel-awards-section">
+  <div class="kennel-awards-wrap">
+    <div class="kennel-awards-grid">
+      <div class="fade-left">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:var(--card);" class="clip-reveal">
+          <img src="trofej1.jpg" alt="Awards and Trophies" style="width:100%;height:100%;object-fit:cover;"/>
+        </div>
+      </div>
+      <div class="fade-right">
+        <p class="eyebrow">Awards & Achievements</p>
+        <h2 class="section-h" style="margin-bottom:24px;">A Trophy Cabinet<br/>Built on <em>Decades</em></h2>
+        <div class="about-body">
+          <p>The Von Simpor kennel's trophy cabinet represents one of the most remarkable collections in the history of Serbian cynology. Victories span national championships, international shows, working trials, and the World Championship stage — across five continents and dozens of countries.</p>
+          <p>Every trophy reflects not just a win, but the correct work of years: the right genetics, the right training, the right selection. Behind each result stands a philosophy — that great dogs are not made by chance, but by discipline, knowledge, and an uncompromising standard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="kennel-offer-section">
+  <div class="kennel-offer-wrap">
+    <p class="eyebrow fade-up" style="justify-content:center;">What the Kennel Offers</p>
+    <h2 class="section-h fade-up" style="text-align:center;margin-bottom:64px;">Breeding <em>Services</em></h2>
+    <div class="services-grid">
+      <div class="srv">
+        <div class="srv-num">01</div>
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <h3 class="srv-title">Puppies &<br/>Breeding</h3>
+        <p class="srv-desc">Von Simpor litters produced from carefully selected, KKL-certified parents. Every puppy is health tested, temperament evaluated, and properly documented.</p>
+        <ul class="srv-list"><li>KKL parents only</li><li>Health clearances</li><li>Pedigree & FCI papers</li><li>Early socialization</li></ul>
+      </div>
+      <div class="srv">
+        <div class="srv-num">02</div>
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg></div>
+        <h3 class="srv-title">Selection &<br/>Evaluation</h3>
+        <p class="srv-desc">Expert evaluation of dogs for breeding suitability, working ability, and sport potential. Temperament testing and drive assessment by certified professionals.</p>
+        <ul class="srv-list"><li>ZTP preparation</li><li>Temperament testing</li><li>Working drive assessment</li><li>Breed standard check</li></ul>
+      </div>
+      <div class="srv">
+        <div class="srv-num">03</div>
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <h3 class="srv-title">Import &<br/>Export</h3>
+        <p class="srv-desc">Worldwide import and export of Von Simpor dogs and selected bloodlines. Full documentation, health certificates, and logistics support for international clients.</p>
+        <ul class="srv-list"><li>International shipping</li><li>Full documentation</li><li>Health certificates</li><li>Ongoing support</li></ul>
+      </div>
+      <div class="srv">
+        <div class="srv-num">04</div>
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="srv-title">KKL / ZTP<br/>Preparation</h3>
+        <p class="srv-desc">Full preparation for KKL breeding licenses and ZTP breed suitability tests. Training, documentation, and support from initial evaluation to final certification.</p>
+        <ul class="srv-list"><li>KKL training</li><li>ZTP preparation</li><li>Documentation support</li><li>Expert guidance</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <div class="pq-sep fade-up"></div>
+  <blockquote class="pq-text fade-up">"I was fascinated by its beauty, anatomy, and exceptional working abilities — the German Shepherd has been my greatest <em>passion</em> from the very beginning."</blockquote>
+  <p class="pq-author fade-up">— Dejan Simović · Von Simpor</p>
+</div>
+
+<!-- CTA -->
+<div class="page-cta">
+  <h2>Enquire About Dogs</h2>
+  <p>Contact us about available puppies, adult dogs, breeding consultations, or import and export.</p>
+  <a href="contact.html" class="btn-dark">Contact the Kennel</a>
+</div>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2026 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

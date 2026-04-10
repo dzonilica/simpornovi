@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Team & Friends — Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>TEAM & <em>FRIENDS</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html" style="color:var(--gold)">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — MOSAIC -->
+<div class="hero-mosaic" id="pageHero">
+  <div class="mosaic-bg">
+    <img src="team2.jpeg" alt="Simpor"/>
+    <img src="op3.jpg" alt="Team"/>
+    <img src="team3.jpg" alt="Competition"/>
+  </div>
+  <div class="mosaic-bg-overlay"></div>
+  <div class="hero-mosaic-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;justify-content:center;margin-bottom:20px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Team & Friends</span>
+    </div>
+    <div class="mosaic-title-accent">Serbia · Europe · World</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(48px,7.5vw,96px);text-align:center;">
+      Team &amp;<br/><em>Friends</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;text-align:center;margin:20px auto 0;max-width:500px;">
+      One passion. Many countries. A worldwide family built around dogs.
+    </p>
+  </div>
+</div>
+
+<!-- INTRO TEXT -->
+<div class="team-intro">
+  <div class="team-intro-wrap">
+    <div class="fade-left">
+      <p class="eyebrow">Our People</p>
+      <h2 class="section-h">One <em>Family.</em><br/>Many Countries.</h2>
+      <div class="about-body" style="margin-top:24px;">
+        <p>Today, Simpor Dog Center represents much more than one person or one place. Behind every result, every dog, and every success stands a team of dedicated people, together with a large number of friends and partners from Serbia and around the world.</p>
+        <p>Through years of work, competition, training, and breeding, a strong network of professionals, trainers, judges, handlers, and dog enthusiasts has been built — people whose knowledge, experience, and support have contributed to the development of Simpor Dog Center. Many of them are part of our everyday work, while others have left their mark through joint projects, cooperation, and the exchange of knowledge.</p>
+        <p>Shared values and the same passion for dogs have connected people from different continents into one large family. It is precisely thanks to this team and these friendships that Simpor Dog Center is where it is today.</p>
+      </div>
+    </div>
+    <div class="fade-right">
+      <div class="team-intro-img clip-reveal">
+        <img src="team4.jpg" alt="Simpor Team"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Serbia <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Germany <span class="marquee-dot"></span></span>
+    <span class="marquee-item">South Korea <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Mongolia <span class="marquee-dot"></span></span>
+    <span class="marquee-item">China <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Portugal · Spain <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sweden <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">USA · Americas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Czech Republic <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">United Kingdom <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Serbia <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Germany <span class="marquee-dot"></span></span>
+    <span class="marquee-item">South Korea <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Mongolia <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- INTERNATIONAL FRIENDS -->
+<div class="intl-friends">
+  <div class="intl-friends-wrap">
+    <p class="eyebrow fade-up">International Connections</p>
+    <h2 class="section-h fade-up">Friends From <em>Every Corner</em> of the World</h2>
+    <p class="about-body fade-up" style="max-width:660px;margin-top:16px;">Shared competition, seminars, breeding partnerships, and a genuine love of dogs have built a worldwide network that continues to grow.</p>
+
+    <div class="intl-grid">
+      <div class="ig-item"><img src="op2.jpg" alt="International Partners"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="op3.jpg" alt="Serbia"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="team2.jpeg" alt="Training Abroad"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="team4.jpg" alt="Competitions"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="s2.jpeg" alt="Working Dogs"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="team6.jpg" alt="Early Career"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="team7.jpg" alt="World Championships"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="team8.jpg" alt="International Friends"/><div class="ig-label"></div></div>
+      <div class="ig-item"><img src="team9.jpg" alt="Friends at Simpor"/><div class="ig-label"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <div class="pq-sep fade-up"></div>
+  <blockquote class="pq-text fade-up">"Shared values and the same passion for dogs have connected people from different continents into one <em>large family</em>."</blockquote>
+  <p class="pq-author fade-up">— Dejan Simović</p>
+</div>
+
+<!-- CTA -->
+<div class="page-cta">
+  <h2>Join the Simpor Family</h2>
+  <p>Whether you're a trainer, breeder, handler, or dog enthusiast — reach out and become part of our world.</p>
+  <a href="contact.html" class="btn-dark">Get in Touch</a>
+</div>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2026 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

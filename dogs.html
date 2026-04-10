@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dogs — Simpor Dog Center · Von Simpor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>SIMPOR <em>DOGS</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="available.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="available.html" style="color:var(--gold)">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — STRIPS -->
+<div class="hero-strips" id="pageHero">
+  <div class="strips-bg">
+    <div class="strip-img"><img src="pocetna1.jpg" alt="Training"/></div>
+    <div class="strip-img"><img src="psi1.jpg" alt="Dogs"/></div>
+    <div class="strip-img"><img src="IMG-20251225-WA0030.jpg" alt="Championship"/></div>
+  </div>
+  <div class="strips-overlay"></div>
+  <div class="hero-strips-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:22px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Dogs</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:26px;">Von Simpor · FCI 3428</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(50px,8vw,100px);">
+      Our <em>Dogs</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:20px;max-width:520px;">
+      Carefully selected dogs with proven genetics and outstanding working qualities — for sport, K9, protection, or family life.
+    </p>
+  </div>
+</div>
+
+<!-- 3 PANELS -->
+<section style="background:var(--dark);padding:80px 0 100px;">
+  <div class="page-inner-wrap">
+    <p class="eyebrow fade-up" style="justify-content:center;margin-bottom:12px;">Choose Your Path</p>
+    <h2 class="section-h fade-up" style="text-align:center;margin-bottom:0;">Find the Right <em>Dog</em> for You</h2>
+    <div class="dogs-panels" style="margin-top:48px;">
+
+      <!-- Our Dogs -->
+      <a href="#our-dogs" class="dogs-panel">
+        <img src="psi1.jpg" alt="Our Dogs"/>
+        <div class="dogs-panel-overlay"></div>
+        <div class="dogs-panel-content">
+          <div class="dogs-panel-tag">Program Dogs</div>
+          <div class="dogs-panel-title">Our Dogs</div>
+          <p class="dogs-panel-desc">Dogs currently part of the Simpor program, actively used in breeding and training.</p>
+          <div class="dogs-panel-cta">View Dogs</div>
+        </div>
+      </a>
+
+      <!-- Available Dogs — FEATURED -->
+      <a href="available.html" class="dogs-panel available">
+        <img src="pas1.jpg" alt="Available Dogs"/>
+        <div class="dogs-panel-overlay"></div>
+        <div class="dogs-panel-content">
+          <div class="dogs-panel-tag">Now Available</div>
+          <div class="dogs-panel-title">Available<br/>Dogs</div>
+          <p class="dogs-panel-desc">Select a dog for sport, work, protection, or family life — guided by our expert team.</p>
+          <div class="dogs-panel-cta">See Available Dogs</div>
+        </div>
+      </a>
+
+      <!-- Puppies -->
+      <a href="puppies.html" class="dogs-panel">
+        <img src="IMG-20251225-WA0035.jpg" alt="Puppies"/>
+        <div class="dogs-panel-overlay"></div>
+        <div class="dogs-panel-content">
+          <div class="dogs-panel-tag">Von Simpor Litters</div>
+          <div class="dogs-panel-title">Puppies</div>
+          <p class="dogs-panel-desc">Carefully bred puppies from selected bloodlines — health tested, temperament evaluated.</p>
+          <div class="dogs-panel-cta">View Puppies</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUR DOGS SECTION -->
+<section id="our-dogs" style="background:var(--charcoal);padding:120px 0;">
+  <div class="page-inner-wrap">
+    <p class="eyebrow fade-up">Currently in Program</p>
+    <h2 class="section-h fade-up">Our <em>Dogs</em></h2>
+    <p class="about-body fade-up" style="max-width:700px;margin-top:16px;margin-bottom:60px;">
+      We present the dogs that are currently part of the Simpor Dog Center program and are actively used in breeding and training. These are carefully selected dogs with proven genetics, stable temperament, and strong working and conformation qualities. All dogs are kept in continuous training and evaluation in order to maintain the high level of working ability and quality standard that defines the Simpor line.
+    </p>
+    <div class="dogs-photo-grid">
+      <div class="clip-reveal" style="overflow:hidden;height:340px;background:var(--card);">
+        <img src="1.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:340px;background:var(--card);">
+        <img src="2.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:340px;background:var(--card);">
+        <img src="3.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:280px;background:var(--card);">
+        <img src="4.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:280px;background:var(--card);">
+        <img src="5.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:280px;background:var(--card);">
+        <img src="DSC_9865.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA TO AVAILABLE -->
+<div class="page-cta" style="margin-top:0;">
+  <h2>Looking for a Dog?</h2>
+  <p>Browse our currently available dogs — for sport, K9 work, protection, or family life.</p>
+  <a href="available.html" class="btn-dark">View Available Dogs →</a>
+</div>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="available.html">Dogs</a><a href="puppies.html">Puppies</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2025 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

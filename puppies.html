@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Puppies — Simpor Dog Center · Von Simpor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>VON SIMPOR <em>PUPPIES</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html" style="color:var(--gold)">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — VERTICAL BAR -->
+<div class="hero-vbar" id="pageHero">
+  <div class="hero-vbar-img">
+    <img src="pup8.jpg" alt="Von Simpor Dogs"/>
+  </div>
+  <div class="hero-vbar-stripe"></div>
+  <div class="hero-vbar-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:22px;margin-left:24px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><a href="dogs.html">Dogs</a><span class="bc-sep">›</span><span>Puppies</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:26px;margin-left:24px;">Von Simpor · KKL Bloodlines</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(46px,7vw,88px);padding-left:24px;border-left:none;">
+      Von Simpor<br/><em>Puppies</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:20px;padding-left:24px;max-width:440px;">
+      Every puppy is the result of careful parent selection and 30 years of breeding expertise.
+    </p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div style="background:var(--charcoal);padding:120px 0;">
+  <div class="puppies-intro-grid">
+    <div class="fade-left">
+      <div class="clip-reveal" style="overflow:hidden;aspect-ratio:4/5;background:var(--card);">
+        <img src="pup9.jpg" alt="Von Simpor Puppy" style="width:100%;height:100%;object-fit:cover;"/>
+      </div>
+    </div>
+    <div class="fade-right">
+      <p class="eyebrow">Von Simpor Litters</p>
+      <h2 class="section-h">Born to Be <em>Great</em></h2>
+      <div class="about-body" style="margin-top:24px;">
+        <p>The puppies from our breeding program are the result of careful parent selection and many years of experience working with sport and working bloodlines. Special attention is given to health, temperament, and the proper development of every puppy.</p>
+        <p>Buyers receive professional guidance when choosing a puppy, along with advice and support for further raising and training. We do not simply hand over a puppy — we guide you through the entire process, from choosing the right puppy for your goals, to support throughout its development.</p>
+        <p>All litters are produced from KKL-certified parents with full FCI documentation, health clearances, and proper breed evaluation. Every puppy is temperament tested and assessed for working potential before leaving our care.</p>
+      </div>
+      <div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="fade-up">
+        <div class="fa-item"><div class="fa-val">KKL</div><div class="fa-lbl">Certified Parents</div></div>
+        <div class="fa-item"><div class="fa-val">FCI</div><div class="fa-lbl">Full Papers &amp; Pedigree</div></div>
+        <div class="fa-item"><div class="fa-val">↗</div><div class="fa-lbl">Health Tested</div></div>
+        <div class="fa-item"><div class="fa-val">∞</div><div class="fa-lbl">Ongoing Support</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section style="background:var(--dark);padding:100px 0;">
+  <div class="page-inner-wrap">
+    <p class="eyebrow fade-up" style="justify-content:center;">What Every Puppy Comes With</p>
+    <h2 class="section-h fade-up" style="text-align:center;margin-bottom:56px;">Full <em>Support</em> from Day One</h2>
+    <div class="puppies-what-grid">
+      <div class="srv">
+        <div class="srv-num">01</div>
+        <h3 class="srv-title">FCI Papers &<br/>Pedigree</h3>
+        <p class="srv-desc">Full FCI documentation and certified pedigree, confirming bloodlines, registration, and breed standards compliance.</p>
+      </div>
+      <div class="srv">
+        <div class="srv-num">02</div>
+        <h3 class="srv-title">Health<br/>Clearances</h3>
+        <p class="srv-desc">Health testing completed by certified veterinary professionals. HD/ED results, vaccinations, and microchipping all included.</p>
+      </div>
+      <div class="srv">
+        <div class="srv-num">03</div>
+        <h3 class="srv-title">Temperament<br/>Evaluation</h3>
+        <p class="srv-desc">Every puppy is individually assessed for temperament, drives, and suitability for their intended purpose before placement.</p>
+      </div>
+      <div class="srv">
+        <div class="srv-num">04</div>
+        <h3 class="srv-title">Training<br/>Guidance</h3>
+        <p class="srv-desc">Professional advice and support for raising and training your puppy — from feeding and socialization to the first training steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div style="background:var(--black);padding:80px 0 0;">
+  <div class="page-inner-wrap">
+    <p class="eyebrow fade-up">From Our Litters</p>
+    <div class="puppies-gallery-grid">
+      <div class="clip-reveal" style="overflow:hidden;height:260px;background:var(--card);">
+        <img src="pup6.jpg" alt="Simpor" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:260px;background:var(--card);">
+        <img src="pup7.jpg" alt="Simpor" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:260px;background:var(--card);">
+        <img src="pup1.jpg" alt="Simpor" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:260px;background:var(--card);">
+        <img src="pup4.jpg" alt="Simpor" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="page-cta" style="margin-top:0;">
+  <h2>Reserve Your Puppy</h2>
+  <p>Contact us to discuss available litters, expected litters, and choosing the right puppy for your goals.</p>
+  <a href="contact.html" class="btn-dark">Enquire About Puppies</a>
+</div>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="available.html">Dogs</a><a href="puppies.html">Puppies</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2026 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

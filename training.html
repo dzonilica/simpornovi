@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Training Services — Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>TRAINING <em>SERVICES</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html" style="color:var(--gold)">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — TYPOGRAPHIC -->
+<div class="hero-typo" id="pageHero">
+  <div class="hero-typo-bg-word">TRAINING</div>
+  <div class="hero-typo-num">06</div>
+  <div class="hero-typo-right">
+    <img src="trening1.jpeg" alt="Training"/>
+  </div>
+  <div class="hero-typo-left">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:20px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Training</span>
+    </div>
+    <div class="hero-typo-cats">
+      <span class="hero-typo-cat">Obedience</span>
+      <span class="hero-typo-cat">Protection</span>
+      <span class="hero-typo-cat">Show &amp; Sport</span>
+      <span class="hero-typo-cat">BH / IGP</span>
+      <span class="hero-typo-cat">KKL / ZTP</span>
+      <span class="hero-typo-cat">K9 Programs</span>
+    </div>
+    <h1 class="page-hero-h1" style="font-size:clamp(48px,7vw,88px);">
+      Training<br/><em>Services</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:20px;">
+      Six complete training categories — from first obedience to World Championship level.
+    </p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="training-intro">
+  <div class="training-intro-wrap">
+    <div class="fade-left">
+      <div class="training-intro-img clip-reveal">
+        <img src="trening2.jpeg" alt="Training at Simpor"/>
+      </div>
+    </div>
+    <div class="fade-right">
+      <p class="eyebrow">Our Approach</p>
+      <h2 class="section-h">Precision. <em>Drive.</em><br/>Results.</h2>
+      <div class="about-body" style="margin-top:28px;">
+        <p>At Simpor Dog Center, every training program is built on decades of real-world experience in sport, protection, and K9 work. We do not follow trends — we set standards.</p>
+        <p>Each dog is assessed individually before beginning training. Programs are structured around the dog's natural drives, temperament, and the specific goals of the owner or handler. Whether you aim for World Championship competition or simply a reliable, well-behaved companion — the methodology is always the same: correct, consistent, and effective.</p>
+        <p>All training is conducted by certified professionals under the direct supervision of founder Dejan Simović, ensuring the highest possible standard in every session.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Obedience <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">IGP / BH Training <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Personal Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">K9 Programs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">KKL / ZTP Prep <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Property Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sport Training <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Tricks & Advanced <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Obedience <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">IGP / BH Training <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Personal Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">K9 Programs <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ═══ OBEDIENCE ═══ -->
+<div class="prog-category" id="obedience">
+  <div class="prog-category-wrap">
+    <div class="prog-category-head">
+      <div class="prog-cat-label fade-left">01</div>
+      <div>
+        <p class="eyebrow fade-up">Training Category</p>
+        <h2 class="section-h fade-up">Obedience<br/><em>(All Breeds)</em></h2>
+        <p class="about-body fade-up" style="max-width:560px;margin-top:18px;">
+          From basic foundations for family dogs to elite IGP competition preparation — our obedience programs cover every stage of development with precision and care.
+        </p>
+      </div>
+    </div>
+    <div class="prog-grid">
+
+      <div class="prog-card">
+        <div class="prog-level">Level 01</div>
+        <div class="prog-name">Basic Obedience</div>
+        <p class="prog-desc">The focus of this training is on basic commands, proper leash walking, socialization, and reducing unwanted behavior. This level creates the foundation for further work and allows owners to communicate with their dog more easily and confidently in everyday life.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">All Breeds</span>
+          <span class="prog-tag">All Ages</span>
+          <span class="prog-tag">Foundation Level</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-level">Level 02</div>
+        <div class="prog-name">Intermediate Obedience</div>
+        <p class="prog-desc">The basic obedience program is intended for dogs that already have basic control and are ready for more structured work. Training focuses on command precision, stability in different environments, and strengthening the dog's concentration. The goal is for the dog to respond reliably to commands in real-life situations.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">With Basic Foundation</span>
+          <span class="prog-tag">Precision Work</span>
+          <span class="prog-tag">Multi-Environment</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-level">Level 03</div>
+        <div class="prog-name">BH / IGP Obedience</div>
+        <p class="prog-desc">This program is designed for dogs preparing for BH and IGP examinations in accordance with current international regulations. Training includes sport-level obedience work, precision in performing exercises, stability under pressure, and reliable work in different situations. Special emphasis is placed on correct technique and preparation for examination and competition.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Sport Level</span>
+          <span class="prog-tag">IGP 1–3</span>
+          <span class="prog-tag">Competition Ready</span>
+          <span class="prog-tag">FCI Standards</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-level">Level 04</div>
+        <div class="prog-name">Advanced — Tricks & Improvements</div>
+        <p class="prog-desc">The advanced obedience level is intended for dogs that have already completed the basic and intermediate stages. The program focuses on further developing control, creative exercises, tricks, and advanced commands that improve the dog's concentration, flexibility, and working motivation. Ideal for owners wanting a higher level of communication and mental stimulation.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Advanced Level</span>
+          <span class="prog-tag">Mental Stimulation</span>
+          <span class="prog-tag">Tricks &amp; Precision</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TRAINING PHOTO GALLERY ROW 1 -->
+<div class="prog-gallery">
+  <div class="prog-gallery-wrap">
+    <p class="eyebrow fade-up">In Training</p>
+    <div class="prog-gallery-grid">
+      <div class="pg-gi clip-reveal"><img src="trening3.jpeg" alt="Training"/></div>
+      <div class="pg-gi clip-reveal"><img src="trening4.jpeg" alt="Working Dogs"/></div>
+      <div class="pg-gi clip-reveal"><img src="trening5.jpeg" alt="Training Session"/></div>
+      <div class="pg-gi clip-reveal"><img src="trening6.jpg" alt="Simpor Training"/></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROTECTION ═══ -->
+<div class="prog-category" id="protection" style="background:var(--charcoal);">
+  <div class="prog-category-wrap">
+    <div class="prog-category-head">
+      <div class="prog-cat-label fade-left">02</div>
+      <div>
+        <p class="eyebrow fade-up">Training Category</p>
+        <h2 class="section-h fade-up">Protection<br/>& <em>K9 Work</em></h2>
+        <p class="about-body fade-up" style="max-width:560px;margin-top:18px;">
+          From personal protection and sport-level bite-work to police K9 preparation and breeding licenses — professional programs for serious working dog goals.
+        </p>
+      </div>
+    </div>
+    <div class="prog-grid">
+
+      <div class="prog-card" style="background:var(--dark);">
+        <div class="prog-level">Protection 01</div>
+        <div class="prog-name">Personal Protection</div>
+        <p class="prog-desc">This personal protection program is intended for dogs trained to protect their owner and family in real-life situations. The training is based on control, stability, and proper evaluation of situations, with special emphasis on reliable performance without uncontrolled aggression. The goal: a dog that remains calm in everyday surroundings, yet responds decisively when necessary.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Owner Protection</span>
+          <span class="prog-tag">Family Safety</span>
+          <span class="prog-tag">Controlled Aggression</span>
+        </div>
+      </div>
+
+      <div class="prog-card" style="background:var(--dark);">
+        <div class="prog-level">Protection 02</div>
+        <div class="prog-name">Property & Facility Protection</div>
+        <p class="prog-desc">This training program is designed for the protection of property, buildings, and facilities. Dogs are trained for controlled territorial guarding, proper reaction to unauthorized entry, and reliable work in different conditions — including night work and work on larger areas. Special attention is given to character stability and obedience.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Property Guard</span>
+          <span class="prog-tag">Night Operations</span>
+          <span class="prog-tag">Large Area Coverage</span>
+        </div>
+      </div>
+
+      <div class="prog-card" style="background:var(--dark);">
+        <div class="prog-level">Protection 03</div>
+        <div class="prog-name">Sport Protection — IGP 1–3</div>
+        <p class="prog-desc">This sport protection program includes training in accordance with the rules of IGP 1–3. The training develops working drives, bite-work technique, control, speed, and precision. This type of protection work is the foundation of working dog sport and serves as the basis for further sport or professional programs, with a clear focus on correct structure and proper working technique.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">IGP 1</span>
+          <span class="prog-tag">IGP 2</span>
+          <span class="prog-tag">IGP 3</span>
+          <span class="prog-tag">FCI Sport Rules</span>
+        </div>
+      </div>
+
+      <div class="prog-card" style="background:var(--dark);">
+        <div class="prog-level">Protection 04</div>
+        <div class="prog-name">Civil Protection — K9 Program</div>
+        <p class="prog-desc">The Civil K9 program is designed for dogs trained for professional protection and official duties in real-life conditions. The training combines obedience, protection work, and stability in urban environments. The program is adapted to the requirements of private security, as well as preparation for work within professional K9 systems, with a high level of control and reliability.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">K9 Certified</span>
+          <span class="prog-tag">Urban Environments</span>
+          <span class="prog-tag">Private Security</span>
+          <span class="prog-tag">CTP Ready</span>
+        </div>
+      </div>
+
+      <div class="prog-card" style="background:var(--dark);grid-column:1/-1;">
+        <div class="prog-level">Protection 05</div>
+        <div class="prog-name">Breeding Licenses — KKL / ZTP</div>
+        <p class="prog-desc">This program includes the preparation of dogs for KKL and ZTP breeding licenses for different working breeds. Training focuses on evaluating temperament, stability, working drives, and protection abilities in accordance with current regulations. The goal is the selection and preparation of high-quality dogs that meet the highest standards of breeding and working dog programs.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">KKL Preparation</span>
+          <span class="prog-tag">ZTP Examination</span>
+          <span class="prog-tag">Breed Selection</span>
+          <span class="prog-tag">Temperament Testing</span>
+          <span class="prog-tag">Working Drives</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TRAINING PHOTO GALLERY ROW 2 -->
+<div class="prog-gallery" style="background:var(--black);">
+  <div class="prog-gallery-wrap">
+    <p class="eyebrow fade-up">Championship Standards</p>
+    <div class="prog-gallery-grid">
+      <div class="pg-gi clip-reveal"><img src="s2.jpeg" alt="Protection Work"/></div>
+      <div class="pg-gi clip-reveal"><img src="g2.jpg" alt="Sport Dogs"/></div>
+      <div class="pg-gi clip-reveal"><img src="s3.jpg" alt="Working Championship"/></div>
+      <div class="pg-gi clip-reveal"><img src="g19.jpg" alt="Simpor Training"/></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SHOW & SPORT ═══ -->
+<div class="prog-category" id="show-sport" style="background:var(--black);">
+  <div class="prog-category-wrap">
+    <div class="prog-category-head">
+      <div class="prog-cat-label fade-left">03</div>
+      <div>
+        <p class="eyebrow fade-up">Training Category</p>
+        <h2 class="section-h fade-up">Show &amp; <em>Sport</em></h2>
+        <p class="about-body fade-up" style="max-width:560px;margin-top:18px;">
+          From the show ring to the sport field — presenting your dog's anatomy and working ability at its absolute best.
+        </p>
+      </div>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card" style="background:var(--charcoal);">
+        <div class="prog-level">Show</div>
+        <div class="prog-name">Show Preparation<br/>&amp; Handling</div>
+        <p class="prog-desc">This program is intended for dogs of all breeds, with special focus on the correct presentation of anatomy, movement, and character in accordance with current breed standards. Through professionally guided training, conditioning, and proper preparation, we work to present the dog's anatomical and working qualities in the best possible way. Special attention is given to correct movement, posture, confidence, and the connection between the dog and handler in the show ring.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">All Breeds</span><span class="prog-tag">Anatomy Presentation</span>
+          <span class="prog-tag">Movement Training</span><span class="prog-tag">Handler Coaching</span>
+        </div>
+      </div>
+      <div class="prog-card" style="background:var(--charcoal);">
+        <div class="prog-level">Sport Competition</div>
+        <div class="prog-name">Sport Competitions<br/>IGP 1–3</div>
+        <p class="prog-desc">This sport competition program is intended for working-line dogs preparing for IGP 1–3 competitions. Training is focused on achieving maximum precision in every exercise, along with a high level of control and stability under demanding conditions. Special emphasis is placed on working technique, discipline, and consistency, enabling dogs to achieve the highest scores and the best possible placements at national and international sport competitions.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">IGP 1</span><span class="prog-tag">IGP 2</span><span class="prog-tag">IGP 3</span>
+          <span class="prog-tag">Maximum Precision</span><span class="prog-tag">National &amp; International</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOW GALLERY IMAGE -->
+<div style="height:420px;overflow:hidden;position:relative;">
+  <img src="tjt.jpg" alt="World Championship Show Ring" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(5,5,5,0.6) 0%,transparent 60%);"></div>
+  <div style="position:absolute;left:80px;top:50%;transform:translateY(-50%);z-index:2;">
+    <p style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">World Championship Level</p>
+    <p style="font-family:var(--font-d);font-size:clamp(28px,4vw,52px);font-weight:300;color:var(--white);line-height:1.05;">Simpor dogs compete<br/>at the <em>highest level</em></p>
+  </div>
+</div>
+
+<!-- ═══ BH / IGP ═══ -->
+<div class="prog-category" id="bh-igp" style="background:var(--charcoal);">
+  <div class="prog-category-wrap">
+    <div class="prog-category-head">
+      <div class="prog-cat-label fade-left">04</div>
+      <div>
+        <p class="eyebrow fade-up">Training Category</p>
+        <h2 class="section-h fade-up">BH / IGP<br/><em>Foundation</em></h2>
+        <p class="about-body fade-up" style="max-width:560px;margin-top:18px;">
+          The BH confirms your dog's readiness for life and work. IGP builds the complete working dog — from tracking and obedience to protection.
+        </p>
+      </div>
+    </div>
+
+    <!-- BH + IGP overview -->
+    <div class="prog-grid" style="margin-bottom:2px;">
+      <div class="prog-card" style="background:var(--dark);">
+        <div class="prog-level">BH</div>
+        <div class="prog-name">BH — Companion<br/>Dog Test</div>
+        <p class="prog-desc">The BH program is the basic obedience and socialization test for dogs intended to live and work in urban and everyday environments. This program confirms the dog's stable temperament, control, obedience, and proper behavior in the presence of people, other dogs, and traffic. The BH examination is a prerequisite for all further working and sport titles, as well as the foundation for advanced training in sport, protection, and K9 programs.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Urban Environments</span><span class="prog-tag">Socialization</span>
+          <span class="prog-tag">Prerequisite for IGP</span><span class="prog-tag">Temperament Confirmation</span>
+        </div>
+      </div>
+      <div class="prog-card" style="background:var(--dark);">
+        <div class="prog-level">IGP Foundation</div>
+        <div class="prog-name">IGP — Working Dog<br/>Foundation</div>
+        <p class="prog-desc">The IGP program represents the foundation of professional work with working dogs and the basis for further sport development. Training includes a high level of obedience, precision in command execution, and stability under demanding working conditions. Depending on the dog's ability, genetics, and the precision of both dog and handler, the IGP program can be directed toward sport competition with the goal of achieving top results, or it can serve as the basis for further professional and working dog training.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Sport or Professional</span><span class="prog-tag">All 3 Phases</span>
+          <span class="prog-tag">Genetics-Based</span><span class="prog-tag">Handler Precision</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- IGP 3 Disciplines -->
+    <p class="eyebrow fade-up" style="margin:60px 0 8px;">IGP Disciplines</p>
+    <h3 class="section-h fade-up" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:0;">Three Phases. <em>One Champion.</em></h3>
+    <div class="disc-grid">
+      <div class="disc-card">
+        <div class="disc-letter">A</div>
+        <div class="disc-name">Tracking</div>
+        <p class="disc-desc">The tracking discipline evaluates the dog's ability to use its nose to find and follow a human track. During the exercise, the dog must demonstrate concentration, precision, and calmness, while correctly indicating found articles. Tracking develops the dog's mental stability, focus, and independence, and forms the basis for many working and service purposes.</p>
+      </div>
+      <div class="disc-card">
+        <div class="disc-letter">B</div>
+        <div class="disc-name">Obedience</div>
+        <p class="disc-desc">The obedience discipline includes the precise execution of exercises under the handler's control, including heeling, changes of pace, recalls, stays, and other tasks defined by the regulations. The emphasis is placed on accuracy, concentration, and harmony between dog and handler, with the goal of achieving maximum points and reliable performance under sport conditions.</p>
+      </div>
+      <div class="disc-card">
+        <div class="disc-letter">C</div>
+        <div class="disc-name">Protection</div>
+        <p class="disc-desc">The protection discipline evaluates the dog's courage, determination, and control in attack and defense situations. The dog must demonstrate strong working drives, correct technique, and a high level of control and obedience. This discipline requires a stable temperament and precise cooperation with the handler, while strictly respecting safety rules and sport standards.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ KKL / ZTP ═══ -->
+<div class="prog-category" id="kkl-ztp" style="background:var(--dark);">
+  <div class="prog-category-wrap">
+    <div class="prog-category-head">
+      <div class="prog-cat-label fade-left">05</div>
+      <div>
+        <p class="eyebrow fade-up">Training Category</p>
+        <h2 class="section-h fade-up">KKL &amp; ZTP<br/><em>Breeding Licenses</em></h2>
+        <p class="about-body fade-up" style="max-width:560px;margin-top:18px;">
+          Breeding licenses that guarantee the quality and future of the breed — prepared to the highest international standard.
+        </p>
+      </div>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-level">KKL · SV</div>
+        <div class="prog-name">KKL (Körung)<br/>German Shepherd Breeding License</div>
+        <p class="prog-desc">KKL (Körung) is the official breeding license for German Shepherd Dogs, conducted in accordance with the rules of the Verein für Deutsche Schäferhunde (SV). The purpose of this test is to evaluate the dog's genetic potential, temperament stability, anatomy, and working abilities. Preparation includes evaluation of temperament, reaction to stress, obedience, and protection work, as well as the correct presentation of the dog according to breed standards. Only dogs that meet the highest criteria receive a breeding license, ensuring the quality and continuity of the German Shepherd breed.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">German Shepherd</span><span class="prog-tag">SV Regulations</span>
+          <span class="prog-tag">Temperament Evaluation</span><span class="prog-tag">Breed Standards</span>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-level">ZTP · Working Breeds</div>
+        <div class="prog-name">ZTP — Breeding Suitability<br/>Test for Working Breeds</div>
+        <p class="prog-desc">ZTP is a breeding suitability test intended for working breeds including Rottweilers, Dobermans, and other working dogs, in accordance with the regulations of their respective breed organizations. The test evaluates temperament, stability, working drives, obedience, and the dog's reaction in protection and stressful situations. Preparation for ZTP requires systematic training, proper socialization, and controlled development of the dog's working qualities. The goal is to select high-quality dogs that meet the requirements for responsible and professional breeding, while preserving the breed's working abilities and characteristic traits.</p>
+        <div class="prog-tags">
+          <span class="prog-tag">Rottweiler</span><span class="prog-tag">Doberman</span>
+          <span class="prog-tag">All Working Breeds</span><span class="prog-tag">Drive Evaluation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ K9 PROGRAMS ═══ -->
+<div class="prog-category" id="k9" style="background:var(--charcoal);">
+  <div class="prog-category-wrap">
+    <div class="prog-category-head">
+      <div class="prog-cat-label fade-left">06</div>
+      <div>
+        <p class="eyebrow fade-up">Training Category</p>
+        <h2 class="section-h fade-up">K9 <em>Programs</em></h2>
+        <p class="about-body fade-up" style="max-width:560px;margin-top:18px;">
+          From search and detection to police and military service — complete K9 programs built on 30 years of professional working dog experience.
+        </p>
+      </div>
+    </div>
+    <div class="k9-grid">
+      <div class="k9-card">
+        <div class="k9-num">01</div>
+        <div class="k9-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="k9-title">K9 Searching</div>
+        <p class="k9-desc">Designed for training dogs in search and detection work in different environments. Focuses on scent work, concentration, and precision in locating the target, with reliable performance in both controlled and real-life conditions.</p>
+      </div>
+      <div class="k9-card">
+        <div class="k9-num">02</div>
+        <div class="k9-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <div class="k9-title">K9 Civil</div>
+        <p class="k9-desc">Adapted for dogs working in everyday and urban environments. Special emphasis is placed on stability, obedience, and the dog's proper reaction when exposed to people, traffic, and various external factors.</p>
+      </div>
+      <div class="k9-card">
+        <div class="k9-num">03</div>
+        <div class="k9-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="k9-title">K9 Protection</div>
+        <p class="k9-desc">Focuses on controlled protection work with a clear emphasis on obedience, stability, and safe, reliable responses in real-life situations. Designed for both professional use and high-stakes personal protection requirements.</p>
+      </div>
+      <div class="k9-card">
+        <div class="k9-num">04</div>
+        <div class="k9-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <div class="k9-title">K9 Police Service</div>
+        <p class="k9-desc">Training for police service dogs includes obedience, protection work, and specialized tasks in accordance with official requirements. The program is adapted for professional use and high working standards in law enforcement environments.</p>
+      </div>
+      <div class="k9-card">
+        <div class="k9-num">05</div>
+        <div class="k9-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="k9-title">K9 Military Service</div>
+        <p class="k9-desc">Intended for dogs being prepared for work in demanding and high-risk environments. Training includes a high level of discipline, stress resistance, and reliable performance in complex situations where there is no margin for error.</p>
+      </div>
+      <div class="k9-card">
+        <div class="k9-num">06</div>
+        <div class="k9-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="k9-title">K9 Security Service</div>
+        <p class="k9-desc">Training for private security dogs focuses on the protection of people, property, and facilities. The program combines obedience, controlled protection work, and stable behavior in a professional environment suited to commercial security requirements.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <div class="pq-sep fade-up"></div>
+  <blockquote class="pq-text fade-up">"Every exercise has a reason. Every correction has a purpose. <em>Precision</em> is not a style — it is the standard."</blockquote>
+  <p class="pq-author fade-up">— Dejan Simović · Simpor Dog Center</p>
+</div>
+
+<!-- CTA -->
+<div class="page-cta">
+  <h2>Start Your Training</h2>
+  <p>Contact us to discuss your goals, your dog's level, and the right program for you.</p>
+  <a href="contact.html" class="btn-dark">Enquire About Training</a>
+</div>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2026 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

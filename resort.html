@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Simpor Dog Resort — Premium Boarding & Care</title>
+<meta name="description" content="Simpor Dog Resort — Exclusive boarding, rehabilitation, and premium care for working and companion dogs. Serbia."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="resort.css">
+<script src="resort.js" defer></script>
+</head>
+<body class="resort-page">
+
+<!-- ═══ LOADER ═══ -->
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>SIMPOR <em>RESORT</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Premium Dog Boarding &amp; Care · Simpor Resort</div>
+  </div>
+</div>
+
+<!-- ═══ MOBILE OVERLAY ═══ -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html" style="color:var(--gold)">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ═══ RESORT HERO ═══ -->
+<section id="resort-hero">
+  <img class="resort-hero-bg" id="resortHeroBg" src="res3.jpg" alt="Simpor Dog Resort Facility"/>
+  <div class="resort-hero-overlay"></div>
+  <div class="resort-hero-overlay-b"></div>
+
+  <div class="resort-hero-content">
+    <div class="resort-breadcrumb">
+      <a href="index.html">Simpor Dog Center</a>
+      <span class="sep">›</span>
+      <span>Dog Resort</span>
+    </div>
+    <div class="resort-hero-tag">
+      <span>Premium Boarding & Care</span>
+    </div>
+    <h1 class="resort-hero-h1">
+      <span class="line"><span class="line-inner">Simpor</span></span>
+      <span class="line"><span class="line-inner">Dog <em>Resort</em></span></span>
+    </h1>
+    <p class="resort-hero-sub">An exclusive retreat where working dogs rest, recover, and thrive — built on the same professional standards that define our championship kennel.</p>
+    <div class="resort-hero-ctas">
+      <a href="#resort-contact" class="btn-gold">Book a Stay</a>
+      <a href="#resort-features" class="btn-outline">Explore Features</a>
+    </div>
+  </div>
+
+  <div class="resort-hero-badge" id="resortBadge">
+    <div class="resort-badge-ring">
+      <div class="resort-badge-inner">
+        <div class="resort-badge-n">Premium<br/>Dog<br/>Resort</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" id="scrollHint">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-track"></div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Premium Boarding <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Professional Care <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Working Dog Specialists <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Training &amp; Recovery <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Simpor Dog Resort <span class="marquee-dot"></span></span>
+    <span class="marquee-item">24h Supervision <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Expert Handlers <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">30+ Years of Excellence <span class="marquee-dot"></span></span>
+    <!-- duplicate -->
+    <span class="marquee-item">Premium Boarding <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Professional Care <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Working Dog Specialists <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Training &amp; Recovery <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Simpor Dog Resort <span class="marquee-dot"></span></span>
+    <span class="marquee-item">24h Supervision <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Expert Handlers <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">30+ Years of Excellence <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ═══ INTRO ═══ -->
+<div class="resort-intro">
+  <div class="resort-intro-wrap">
+    <div class="resort-intro-text">
+      <p class="eyebrow fade-up">What is Simpor Dog Resort</p>
+      <h2 class="resort-intro-title fade-up">More Than<br/>Boarding — It's <em>Their Vacation</em></h2>
+      <div class="resort-intro-body fade-up">
+        <p>Simpor Dog Resort is an exclusive part of Simpor Dog Center, created for owners who want their dogs to enjoy the highest level of care, comfort, and safety while they are away. Whether you are traveling, on vacation, or simply need daily care for your dog, Simpor Dog Resort offers a unique environment where every dog receives professional attention, individual care, and the feeling of being at home.</p>
+        <p>Located in the heart of nature, within more than two hectares of organized and secure space, Simpor Dog Resort combines premium accommodation, professional supervision, and daily activities designed to keep every dog happy, relaxed, and active.</p>
+        <p>Our goal is simple — <em>while you enjoy your vacation, your dog will enjoy theirs.</em></p>
+      </div>
+    </div>
+    <div class="resort-intro-visual fade-up">
+      <img class="resort-main-img" src="spa.jpeg" alt="Simpor Dog Resort"/>
+      <img class="resort-accent-img" src="res4.jpg" alt="Dog Care"/>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ACHIEVEMENTS STRIP ═══ -->
+<div class="achievements-strip">
+  <div class="ach-wrap">
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>24/7 Supervision</strong>
+        <span>Expert handlers always present</span>
+      </div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>Secure & Safe</strong>
+        <span>Professional facility standards</span>
+      </div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>Tailored Programs</strong>
+        <span>Individual care plans for every dog</span>
+      </div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>Expert Team</strong>
+        <span>30+ years of cynological expertise</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="resort-features" id="resort-features">
+  <div class="resort-features-wrap">
+    <div class="resort-features-head">
+      <p class="eyebrow fade-up" style="justify-content:center;">What We Offer</p>
+      <h2 class="section-h fade-up">Built for the<br/><em>Best</em> Dogs</h2>
+    </div>
+    <div class="resort-features-grid">
+      <div class="resort-feature">
+        <div class="rf-num">01</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="rf-title">Premium Boarding</div>
+        <p class="rf-desc">Spacious, clean, and climate-controlled accommodations designed for the comfort and well-being of dogs of all sizes and temperaments. Individual suites for sport and working dogs.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">02</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="rf-title">Training Maintenance</div>
+        <p class="rf-desc">Keep your dog's training sharp during their stay. Our certified handlers continue working on skills and commands, so your dog returns home better than they left.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">03</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div class="rf-title">Socialization</div>
+        <p class="rf-desc">Supervised social interaction with other dogs, designed for each dog's personality and temperament. Essential enrichment for working dogs during their rest periods.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">04</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M12 22c-4.97 0-9-4.03-9-9V6l9-3 9 3v7c0 4.97-4.03 9-9 9z"/>
+          </svg>
+        </div>
+        <div class="rf-title">Recovery & Rehab</div>
+        <p class="rf-desc">Specialized recovery programs for sport dogs following competitions, alongside rehabilitation support for dogs recovering from injury or surgery.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">05</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div class="rf-title">Veterinary Coordination</div>
+        <p class="rf-desc">Close cooperation with trusted veterinary professionals. Health monitoring throughout every stay, with immediate action protocols and owner reporting.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">06</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="rf-title">Nutrition Plans</div>
+        <p class="rf-desc">Custom feeding schedules using premium nutrition tailored to each dog's breed, age, working level, and health requirements. We follow your dog's existing diet exactly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<div class="resort-gallery">
+  <div class="resort-gallery-wrap">
+    <div>
+      <p class="eyebrow fade-up">The Resort</p>
+      <h2 class="section-h fade-up">Life at <em>Simpor Resort</em></h2>
+    </div>
+    <div class="resort-gallery-grid">
+      <div class="rg-item">
+        <img src="res1.jpg"Resort Life"/>
+      </div>
+      <div class="rg-item">
+        <img src="res2.jpg" alt="Dog Training"/>
+      </div>
+      <div class="rg-item">
+        <img src="res5.jpg" alt="Care"/>
+      </div>
+      <div class="rg-item">
+        <img src="res6.jpg" alt="Working Dogs"/>
+      </div>
+      <div class="rg-item">
+        <img src="res7.jpg" alt="Training"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PULL QUOTE ═══ -->
+<div class="pull-quote">
+  <div class="pq-sep fade-up"></div>
+  <blockquote class="pq-text fade-up">
+    "Your dog deserves the same <em>professional standard</em> that breeds world champions — even on their days off."
+  </blockquote>
+  <p class="pq-author fade-up">— Simpor Dog Resort</p>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="resort-contact" style="background:#0e0b07; padding:140px 0 0;">
+  <div class="contact-wrap" style="grid-template-columns:1fr; max-width:760px;">
+    <div class="contact-info">
+      <p class="eyebrow fade-up">Reserve a Stay</p>
+      <h2 class="section-h fade-up">Book Your Dog<br/>Into the <em>Resort</em></h2>
+      <p class="contact-desc fade-up">Contact us to discuss availability, duration, and the specific requirements for your dog's stay. We accept working dogs, sport dogs, and well-tempered family dogs.</p>
+      <div class="c-details fade-up">
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.17 6.17l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>Phone / WhatsApp</strong>
+            <span><a href="tel:+381">+381 (contact for details)</a></span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>Email</strong>
+            <span><a href="mailto:resort@simpor.com">resort@simpor.com</a></span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>Location</strong>
+            <span>Serbia — details provided on inquiry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="f-col">
+        <div class="f-brand-logo">SIM<em>POR</em></div>
+        <p class="f-desc">Simpor Dog Center & Resort. Professional kennel, training, and boarding for working and sport dogs. Serbia.</p>
+        <div class="f-socials">
+          <a href="https://www.instagram.com/simpor_dog_resort/" class="f-soc" aria-label="Instagram Resort">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="f-soc" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="f-col">
+        <div class="f-col-title">Navigation</div>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="training.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <div class="f-col-title">Resort</div>
+        <ul class="f-links">
+          <li><a href="#resort-features">Premium Boarding</a></li>
+          <li><a href="#resort-features">Training Maintenance</a></li>
+          <li><a href="#resort-features">Recovery Programs</a></li>
+          <li><a href="#resort-contact">Book a Stay</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <div class="f-col-title">Contact</div>
+        <ul class="f-links">
+          <li><a href="mailto:resort@simpor.com">resort@simpor.com</a></li>
+          <li><a href="mailto:info@simpor.com">info@simpor.com</a></li>
+          <li><a href="#">Serbia · Europe</a></li>
+          <li><a href="#">FCI 3428</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="f-bottom-left">© 2026 Simpor Dog Center & Resort. All rights reserved.</div>
+      <div class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></div>
+    </div>
+  </footer>
+</section>
+
+</body>
+</html>

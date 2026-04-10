@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dogs — Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+<style>
+  /* Page-specific: gold hero for Available Dogs */
+  .avail-hero-strip {
+    background:linear-gradient(135deg, var(--black) 0%, #1a1200 100%);
+    padding:160px 80px 80px;
+    position:relative; overflow:hidden;
+  }
+  @media (max-width:900px) {
+    .avail-hero-strip { padding:140px 40px 60px; }
+  }
+  @media (max-width:640px) {
+    .avail-hero-strip { padding:120px 24px 48px; }
+  }
+  .avail-hero-strip::before {
+    content:""; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .avail-hero-strip::after {
+    content:"AVAILABLE"; position:absolute;
+    right:-40px; top:50%; transform:translateY(-50%);
+    font-family:var(--font-d); font-size:180px; font-weight:300;
+    color:rgba(201,145,18,0.04); letter-spacing:20px; white-space:nowrap;
+    pointer-events:none;
+  }
+  .avail-now-badge {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--gold); color:var(--black);
+    font-size:9px; letter-spacing:4px; text-transform:uppercase;
+    font-weight:700; padding:10px 22px; margin-bottom:28px;
+  }
+  .avail-now-badge::before {
+    content:""; width:8px; height:8px; border-radius:50%;
+    background:var(--black); animation:pulse-dot 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse-dot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(0.7);opacity:0.6} }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>AVAILABLE <em>DOGS</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html" style="color:var(--gold)">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO STRIP (no image - pure dark gold design) -->
+<div class="avail-hero-strip">
+  <div style="max-width:1280px;margin:0 auto;position:relative;z-index:2;">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span>
+      <a href="dogs.html">Dogs</a><span class="bc-sep">›</span>
+      <span>Dogs</span>
+    </div>
+    <div class="avail-now-badge fade-up">Now Available</div>
+    <h1 style="font-family:var(--font-d);font-size:clamp(52px,8vw,100px);font-weight:300;color:var(--white);line-height:0.92;margin-bottom:24px;" class="fade-up">
+      Available<br/><em style="color:var(--gold);">Dogs</em>
+    </h1>
+    <p style="font-size:15px;color:var(--text-2);font-weight:300;line-height:1.85;max-width:580px;" class="fade-up">
+      Simpor Dog Center offers the possibility to choose a dog according to your needs and purpose — whether for sport, work, protection, or family life. Based on your requirements and the experience of our team, every selection is directed toward the most suitable young or fully trained dog.
+    </p>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item marquee-gold">Sport Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">K9 Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Protection Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Family Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Young Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Trained Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Von Simpor Bloodlines <span class="marquee-dot"></span></span>
+    <span class="marquee-item">FCI 3428 <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Sport Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">K9 Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Protection Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Family Dogs <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- SELECTION INTRO -->
+<div class="avail-intro">
+  <div class="avail-intro-wrap">
+    <div class="fade-left">
+      <div class="avail-hero-img clip-reveal">
+        <img src="g6.jpeg" alt="Dog Selection at Simpor"/>
+        <div class="avail-highlight">Expert Selection</div>
+      </div>
+    </div>
+    <div class="fade-right">
+      <p class="eyebrow">How Selection Works</p>
+      <h2 class="section-h">The Right Dog<br/>for Your <em>Purpose</em></h2>
+      <div class="about-body" style="margin-top:24px;">
+        <p>Every dog we offer has been individually evaluated by our team. We do not list dogs like products — we match dogs to people. Before recommending a dog, we take the time to understand your goals, your experience, your lifestyle, and what you need from your dog.</p>
+        <p>Whether you're a professional handler preparing for World Championship competition, a security company seeking reliable K9 candidates, or a family looking for a confident, stable companion — the selection process at Simpor is always personal and professional.</p>
+        <p>All available dogs come from our breeding program or from carefully trusted partners, with full documentation, health clearances, and ongoing support after purchase.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;" class="fade-up">
+        <div class="fa-item"><div class="fa-val" style="font-size:22px;">Sport</div><div class="fa-lbl">IGP · BH · Championships</div></div>
+        <div class="fa-item"><div class="fa-val" style="font-size:22px;">K9</div><div class="fa-lbl">Police · Military · Civil</div></div>
+        <div class="fa-item"><div class="fa-val" style="font-size:22px;">Guard</div><div class="fa-lbl">Personal · Property</div></div>
+        <div class="fa-item"><div class="fa-val" style="font-size:22px;">Family</div><div class="fa-lbl">Stable · Reliable · Trained</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DOGS GRID — CONTACT TO ENQUIRE -->
+<section style="background:var(--dark);padding:100px 0;">
+  <div class="page-inner-wrap">
+    <p class="eyebrow fade-up">Current Selection</p>
+    <h2 class="section-h fade-up" style="margin-bottom:16px;">Dogs Currently <em>Available</em></h2>
+    <p class="fade-up" style="font-size:14px;color:var(--text-2);margin-bottom:52px;max-width:620px;font-weight:300;line-height:1.8;">
+      Our available dogs change regularly. Contact us directly for the most current selection — we will match you with the right dog based on your specific requirements.
+    </p>
+    <div class="avail-grid">
+      <div class="avail-card fade-up">
+        <div class="avail-card-img"><img src="pas1.jpg" alt="Available German Shepherd"/></div>
+        <div class="avail-card-body">
+          <div class="avail-card-name">Von Simpor Line</div>
+          <div class="avail-card-breed">German Shepherd Dog</div>
+          <div class="avail-card-attrs">
+            <span class="avail-attr">Sport</span><span class="avail-attr">IGP Ready</span><span class="avail-attr">Male</span>
+          </div>
+          <div class="avail-card-price">Contact for Details</div>
+        </div>
+      </div>
+      <div class="avail-card fade-up">
+        <div class="avail-card-img"><img src="DSC_6207.jpg" alt="Available Working Dog"/></div>
+        <div class="avail-card-body">
+          <div class="avail-card-name">Working Selection</div>
+          <div class="avail-card-breed">Working Breed</div>
+          <div class="avail-card-attrs">
+            <span class="avail-attr">K9</span><span class="avail-attr">Protection</span><span class="avail-attr">Trained</span>
+          </div>
+          <div class="avail-card-price">Contact for Details</div>
+        </div>
+      </div>
+      <div class="avail-card fade-up">
+        <div class="avail-card-img"><img src="IMG-20251012-WA0017.jpg" alt="Available Dog"/></div>
+        <div class="avail-card-body">
+          <div class="avail-card-name">Family &amp; Sport</div>
+          <div class="avail-card-breed">German Shepherd Dog</div>
+          <div class="avail-card-attrs">
+            <span class="avail-attr">Family</span><span class="avail-attr">BH Titled</span><span class="avail-attr">Female</span>
+          </div>
+          <div class="avail-card-price">Contact for Details</div>
+        </div>
+      </div>
+    </div>
+    <p class="fade-up" style="text-align:center;margin-top:36px;font-size:11px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;">
+      Updated availability — contact us for current dogs and pricing
+    </p>
+  </div>
+</section>
+
+<!-- ENQUIRE BAR -->
+<div class="enquire-bar fade-up">
+  <div>
+    <h2>Find Your Dog Today</h2>
+    <p style="margin-top:8px;">Tell us your goals and we'll guide you to the right selection from our available dogs and trusted network.</p>
+  </div>
+  <a href="contact.html" class="btn-dark" style="white-space:nowrap;">Contact Us to Enquire →</a>
+</div>
+
+<!-- ALSO SEE: PUPPIES -->
+<section style="background:var(--black);padding:80px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 80px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+    <div style="background:var(--card);padding:52px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px;">Also Available</p>
+        <h3 style="font-family:var(--font-d);font-size:clamp(30px,4vw,48px);font-weight:300;color:var(--off-white);line-height:1.05;margin-bottom:18px;">Von Simpor <em>Puppies</em></h3>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.8;font-weight:300;max-width:400px;">Carefully bred puppies from selected bloodlines — with professional guidance on choosing, raising, and training from day one.</p>
+      </div>
+      <a href="puppies.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:36px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;">View Puppies →</a>
+    </div>
+    <div style="overflow:hidden;min-height:340px;">
+      <img src="pup9.jpg" alt="Puppies" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+    </div>
+  </div>
+</section>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="available.html">Dogs</a><a href="puppies.html">Puppies</a>
+      <a href="dogs.html">All Dogs</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2026 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

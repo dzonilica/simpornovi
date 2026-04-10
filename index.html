@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Simpor Dog Center — Professional Kennel & Training · FCI 3428</title>
+<meta name="description" content="Simpor Dog Center — Over 30 years of excellence in German Shepherd breeding, working dog training, K9 selection, and sport dogs. FCI 3428. Serbia."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ═══ LOADER ═══ -->
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>SIMPOR</div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<!-- ═══ MOBILE OVERLAY ═══ -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt=""/>
+    <button class="lb-close" onclick="closeLightboxBtn()">×</button>
+    <button class="lb-prev" onclick="lbNav(-1)">&#8592;</button>
+    <button class="lb-next" onclick="lbNav(1)">&#8594;</button>
+    <div class="lb-info" id="lbInfo"></div>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" style="color:var(--gold)">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <img class="hero-bg" id="heroBg" src="pocetna1.jpg" alt="Simpor Dog Center"/>
+  <div class="hero-tint"></div>
+  <div class="hero-tint-bot"></div>
+
+  <!-- Corner ornaments -->
+  <div class="hero-corner tl" id="hcTL">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+      <path d="M2 62 L2 2 L62 2" stroke="#C99112" stroke-width="1"/>
+      <circle cx="2" cy="2" r="2.5" fill="#C99112" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-corner tr" id="hcTR">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+      <path d="M2 62 L2 2 L62 2" stroke="#C99112" stroke-width="1"/>
+      <circle cx="2" cy="2" r="2.5" fill="#C99112" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-corner bl" id="hcBL">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+      <path d="M2 62 L2 2 L62 2" stroke="#C99112" stroke-width="1"/>
+      <circle cx="2" cy="2" r="2.5" fill="#C99112" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-corner br" id="hcBR">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+      <path d="M2 62 L2 2 L62 2" stroke="#C99112" stroke-width="1"/>
+      <circle cx="2" cy="2" r="2.5" fill="#C99112" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <!-- Horizontal gold rules -->
+  <div class="hero-rule top" id="hrTop"></div>
+  <div class="hero-rule bot" id="hrBot"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="hero-eyebrow-inner">Est. 1994 · FCI 3428 · Serbia</span></div>
+    <h1 class="hero-h1">
+      <span class="line"><span class="line-inner">Where Champions</span></span>
+      <span class="line"><span class="line-inner">Are <em>Born</em></span></span>
+    </h1>
+    <p class="hero-sub">More than 30 years shaping the world's finest working and sport dogs — from Serbia to every continent.</p>
+    <div class="hero-ctas">
+      <a href="about.html" class="btn-gold">Explore Our Center</a>
+      <a href="gallery.html" class="btn-outline">View Gallery</a>
+    </div>
+  </div>
+
+  <div class="hero-badge" id="heroBadge">
+    <div class="hero-badge-inner">
+      <div class="hero-badge-n">30+</div>
+      <div class="hero-badge-l">Years of Excellence</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" id="scrollHint">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-track"></div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">German Shepherds <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">World Championships <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sport Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Von Simpor Kennel <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">K9 Selection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Working Breeds <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Protection Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">FCI Certified · Est. 1994 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Personal Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Serbia · Europe · World <span class="marquee-dot"></span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">German Shepherds <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">World Championships <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sport Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Von Simpor Kennel <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">K9 Selection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Working Breeds <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Protection Dogs <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">FCI Certified · Est. 1994 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Personal Protection <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Serbia · Europe · World <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-img-col fade-up">
+      <div class="about-grid">
+        <div class="about-grid-item">
+          <img src="pocetna2.jpg" alt="Simpor Dog Center"/>
+        </div>
+        <div class="about-grid-item">
+          <img src="trofej2.jpg" alt="Working Dogs"/>
+        </div>
+        <div class="about-grid-item">
+          <img src="trofej1.jpg" alt="German Shepherd"/>
+        </div>
+      </div>
+      <div class="about-badge">
+        <span class="badge-big">30+</span>
+        <span class="badge-small">Years in Cynology</span>
+      </div>
+    </div>
+
+    <div class="about-text-col">
+      <p class="eyebrow fade-up">Who We Are</p>
+      <h2 class="section-h fade-up">A Legacy Built<br/>on <em>Excellence</em></h2>
+      <div class="about-body fade-up">
+        <p>Simpor Dog Center is a professional center for the breeding, training, and development of working and sport dogs, built on more than 30 years of experience in cynology. Our work includes the selection, breeding, and training of dogs for sport, personal protection, official service purposes, and family life, with a clear focus on stable temperament, reliability, and outstanding results.</p>
+        <p>By combining international experience, proven training methods, and modern working standards, Simpor Dog Center has built a reputation as a recognized name on the international canine scene. Our mission is to provide every dog and owner with professional support and to create a strong, functional bond between human and dog.</p>
+      </div>
+      <div class="about-stats fade-up">
+        <div class="stat">
+          <div class="stat-n">30+</div>
+          <div class="stat-l">Years of Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">20+</div>
+          <div class="stat-l">World Top 10 Dogs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">6</div>
+          <div class="stat-l">Continents Reached</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACHIEVEMENTS STRIP ═══ -->
+<div class="achievements-strip">
+  <div class="ach-wrap">
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>Crufts Winner</strong>
+        <span>Paris Von Simpor — 1st from Serbia in history</span>
+      </div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>Czech National Champion</strong>
+        <span>Kendy Z. Kraje Husitu — Working Championship</span>
+      </div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/><line x1="2" y1="12" x2="22" y2="12"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>Global Presence</strong>
+        <span>Asia, Americas, Europe — every continent</span>
+      </div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong>K9 Certified</strong>
+        <span>Police K9 training · KKL · CTP certified</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GALLERY GRID ═══ -->
+<section id="gallery">
+  <div class="gallery-wrap">
+    <div class="gallery-top">
+      <div>
+        <p class="eyebrow fade-up">Our World</p>
+        <h2 class="section-h fade-up">Champions in <em>Action</em></h2>
+      </div>
+      <a href="gallery.html" class="gallery-link fade-up">Full Gallery &rarr;</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">
+        <img src="eksn1.jpeg" alt="Simpor Dog Center"/>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="eksn2.jpeg" alt="German Shepherd Training"/>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="eksn3.jpg" alt="Sport Dogs"/>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="eksn4.jpeg" alt="Working Dogs"/>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="eksn5.jpeg" alt="Dog Championship"/>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="eksn6.jpeg" alt="Awards and Achievements"/>
+        <div class="g-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEGACY STRIP ═══ -->
+<section class="legacy-section">
+  <div class="legacy-wrap">
+    <div class="legacy-grid">
+      <div class="fade-left">
+        <p class="eyebrow" style="margin-bottom:18px;">The Founder</p>
+        <h2 style="font-family:var(--font-d);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--off-white);line-height:1.05;margin-bottom:14px;">
+          Dejan <em style="font-style:italic;color:var(--gold);">Simović</em>
+        </h2>
+        <p style="font-size:14px;color:var(--text-2);font-weight:300;line-height:1.8;margin-bottom:28px;">
+          Founder of Von Simpor kennel. 30+ years of international experience. The man behind every result.
+        </p>
+        <a href="about.html" style="display:inline-flex;align-items:center;gap:10px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;">
+          Full Story on About Page →
+        </a>
+      </div>
+      <div class="fade-right">
+        <div class="legacy-stats-grid">
+          <div style="background:var(--card);padding:32px 24px;text-align:center;border-top:2px solid var(--gold);">
+            <div style="font-family:var(--font-d);font-size:44px;font-weight:300;color:var(--gold);line-height:1;">30+</div>
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-top:8px;">Years in Cynology</div>
+          </div>
+          <div style="background:var(--card);padding:32px 24px;text-align:center;border-top:2px solid transparent;">
+            <div style="font-family:var(--font-d);font-size:44px;font-weight:300;color:var(--gold);line-height:1;">20+</div>
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-top:8px;">World Top 10 Dogs</div>
+          </div>
+          <div style="background:var(--card);padding:32px 24px;text-align:center;border-top:2px solid transparent;">
+            <div style="font-family:var(--font-d);font-size:44px;font-weight:300;color:var(--gold);line-height:1;">6</div>
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-top:8px;">Continents Reached</div>
+          </div>
+          <div style="background:var(--card);padding:32px 24px;text-align:center;border-top:2px solid transparent;">
+            <div style="font-family:var(--font-d);font-size:44px;font-weight:300;color:var(--gold);line-height:1;">1st</div>
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-top:8px;">Serbian Crufts Winner</div>
+          </div>
+        </div>
+        <div style="background:var(--charcoal);padding:28px 32px;margin-top:2px;border-left:3px solid var(--gold);">
+          <p style="font-family:var(--font-d);font-size:18px;font-style:italic;font-weight:300;color:var(--off-white);line-height:1.5;">
+            "The sporting spirit still keeps me at the same level of dedication as at the beginning of my career."
+          </p>
+          <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-3);margin-top:12px;">— Dejan Simović</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="services-wrap">
+    <div class="services-head">
+      <p class="eyebrow fade-up" style="justify-content:center;">What We Do</p>
+      <h2 class="section-h fade-up">Built for Every <em>Purpose</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="srv">
+        <div class="srv-num">01</div>
+        <div class="srv-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Sport &<br/>Competition</h3>
+        <p class="srv-desc">High-performance training for working dog sport at the highest international level — from national competitions to World Championships.</p>
+        <ul class="srv-list">
+          <li>IGP / Schutzhund Training</li>
+          <li>Competition Preparation</li>
+          <li>World Championship Dogs</li>
+          <li>International Sport Selection</li>
+        </ul>
+      </div>
+      <div class="srv">
+        <div class="srv-num">02</div>
+        <div class="srv-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Kennel &<br/>Breeding</h3>
+        <p class="srv-desc">Von Simpor kennel — selectively bred German Shepherds with proven bloodlines known for extraordinary temperament and working ability.</p>
+        <ul class="srv-list">
+          <li>KKL Certified Breeding</li>
+          <li>Bloodline Selection</li>
+          <li>Puppy Evaluation</li>
+          <li>Import / Export Worldwide</li>
+        </ul>
+      </div>
+      <div class="srv">
+        <div class="srv-num">03</div>
+        <div class="srv-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">K9 &<br/>Protection</h3>
+        <p class="srv-desc">Professional K9 training for police service, personal protection, and official selection — CTP certified and internationally recognized.</p>
+        <ul class="srv-list">
+          <li>Police K9 Preparation</li>
+          <li>Personal Protection Dogs</li>
+          <li>CTP / Official Selections</li>
+          <li>Handler Certification</li>
+        </ul>
+      </div>
+      <div class="srv">
+        <div class="srv-num">04</div>
+        <div class="srv-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Family<br/>Dogs</h3>
+        <p class="srv-desc">Well-socialized, stable dogs for family life — trained, tested, and perfectly balanced between reliable temperament and daily life.</p>
+        <ul class="srv-list">
+          <li>Family Companion Selection</li>
+          <li>Basic Obedience Training</li>
+          <li>Socialization Programs</li>
+          <li>Ongoing Owner Support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PULL QUOTE ═══ -->
+<div class="pull-quote">
+  <div class="pq-sep fade-up"></div>
+  <blockquote class="pq-text fade-up">
+    "Every dog deserves a purpose. Every owner deserves a partner. At Simpor, we deliver <em>both</em>."
+  </blockquote>
+  <p class="pq-author fade-up">— Dejan Simović, Founder · Simpor Dog Center</p>
+</div>
+
+<!-- ═══ PHOTO GALLERY STRIP ═══ -->
+<section id="photo-gallery">
+  <div class="pg-head">
+    <div>
+      <p class="eyebrow fade-up">Photo Gallery</p>
+      <h2 class="section-h fade-up" style="font-size:clamp(32px,4vw,52px);">Moments of <em>Greatness</em></h2>
+    </div>
+    <div class="pg-nav-btns">
+      <button class="pg-btn" onclick="pgScroll(-1)">&#8592;</button>
+      <div class="pg-counter"><span class="pg-counter-cur" id="pgCurrent">01</span> / <span id="pgTotal">20</span></div>
+      <button class="pg-btn" onclick="pgScroll(1)">&#8594;</button>
+    </div>
+  </div>
+  <div id="pgStripWrap">
+    <div id="pgStrip">
+      <div class="pg-thumb" data-src="g1.jpg" data-caption="Training Session" data-idx="0">
+        <img src="g1.jpg" alt="Training Session"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g2.jpg" data-caption="German Shepherd Excellence" data-idx="1">
+        <img src="g2.jpg" alt="German Shepherd Excellence"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g3.jpeg" data-caption="Sport Competition" data-idx="2">
+        <img src="g3.jpeg" alt="Sport Competition"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g4.jpeg" data-caption="World Championship" data-idx="3">
+        <img src="g4.jpeg" alt="World Championship"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g5.jpeg" data-caption="Von Simpor Bloodlines" data-idx="4">
+        <img src="g5.jpeg" alt="Von Simpor Bloodlines"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g6.jpeg" data-caption="Protection Training" data-idx="5">
+        <img src="g6.jpeg" alt="Protection Training"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g12.jpg" data-caption="Simpor Champions" data-idx="6">
+        <img src="g12.jpg" alt="Simpor Champions"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g13.jpg" data-caption="Working Dog Sport" data-idx="7">
+        <img src="g13.jpg" alt="Working Dog Sport"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g14.jpg" data-caption="International Competition" data-idx="8">
+        <img src="g14.jpg" alt="International Competition"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g15.jpg" data-caption="K9 Training" data-idx="9">
+        <img src="g15.jpg" alt="K9 Training"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g16.jpeg" data-caption="IGP Champions" data-idx="10">
+        <img src="g16.jpeg" alt="IGP Champions"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g18.jpeg" data-caption="Training Excellence" data-idx="11">
+        <img src="g18.jpeg" alt="Training Excellence"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g19.jpg" data-caption="Championship Dogs" data-idx="12">
+        <img src="g19.jpg" alt="Championship Dogs"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g20.jpg" data-caption="Simpor Kennel" data-idx="13">
+        <img src="g20.jpg" alt="Simpor Kennel"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g21.jpeg" data-caption="Working Dogs" data-idx="14">
+        <img src="g21.jpeg" alt="Working Dogs"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g22.jpeg" data-caption="Von Simpor Heritage" data-idx="15">
+        <img src="g22.jpeg" alt="Von Simpor Heritage"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g23.jpeg" data-caption="Simpor Excellence" data-idx="16">
+        <img src="g23.jpeg" alt="Simpor Excellence"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g24.jpeg" data-caption="Professional Standards" data-idx="17">
+        <img src="g24.jpeg" alt="Professional Standards"/><div class="pg-caption"></div>
+      </div>
+      <div class="pg-thumb" data-src="g25.jpeg" data-caption="Simpor Dog Center" data-idx="18">
+        <img src="g25.jpeg" alt="Simpor Dog Center"/><div class="pg-caption"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESORT TEASER ═══ -->
+<section id="resort-teaser">
+  <img class="resort-bg" src="res1.jpg" alt="Simpor Dog Resort" onerror="this.src='pocetna2.jpg'"/>
+  <div class="resort-overlay"></div>
+  <div class="resort-content fade-up">
+    <div class="resort-tag">Coming Soon</div>
+    <h2>Simpor Dog<br/><em>Resort</em></h2>
+    <p>An exclusive retreat where working dogs rest, recover, and thrive. Premium boarding, spa services, and professional care — all under one roof.</p>
+    <a href="resort.html" class="btn-gold">Discover the Resort</a>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p class="eyebrow fade-up">Get in Touch</p>
+      <h2 class="section-h fade-up">Start Your<br/><em>Journey</em> With Us</h2>
+      <p class="contact-desc fade-up">Whether you're looking for a world-class working dog, professional training, K9 selection, or expert cynological advice — Simpor Dog Center is your destination.</p>
+      <div class="c-details fade-up">
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>Location</strong>
+            <span>Serbia · Available Internationally</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.17 6.17l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>Phone / WhatsApp</strong>
+            <span><a href="tel:+381">+381 (contact for details)</a></span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>Email</strong>
+            <span><a href="mailto:info@simpor.com">info@simpor.com</a></span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5" stroke-linecap="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            </svg>
+          </div>
+          <div class="c-item-body">
+            <strong>FCI Registration</strong>
+            <span>FCI 3428 · Von Simpor Kennel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-visual fade-up">
+      <img src="profi.jpg" alt="Simpor Dog Center"/>
+    </div>
+
+  </div>
+
+  <!-- FOOTER inside contact section -->
+  <footer>
+    <div class="footer-grid">
+      <div class="f-col">
+        <div class="f-brand-logo">SIM<em>POR</em></div>
+        <p class="f-desc">Professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+        <div class="f-socials">
+          <a href="#" class="f-soc" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="f-soc" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="f-soc" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96C1 8.13 1 12 1 12s0 3.87.46 5.58a2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.97C23 15.87 23 12 23 12s0-3.87-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="f-col">
+        <div class="f-col-title">Navigation</div>
+        <ul class="f-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="training.html">Services</a></li>
+          <li><a href="about.html">Founder</a></li>
+          <li><a href="resort.html">Dog Resort</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <div class="f-col-title">Services</div>
+        <ul class="f-links">
+          <li><a href="training.html">Sport & Competition</a></li>
+          <li><a href="training.html">Kennel & Breeding</a></li>
+          <li><a href="training.html">K9 & Protection</a></li>
+          <li><a href="training.html">Family Dogs</a></li>
+          <li><a href="#contact">Training</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <div class="f-col-title">Contact</div>
+        <ul class="f-links">
+          <li><a href="mailto:info@simpor.com">info@simpor.com</a></li>
+          <li><a href="#">Serbia · Europe · World</a></li>
+          <li><a href="#">FCI 3428</a></li>
+          <li><a href="#">Von Simpor Kennel</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="f-bottom-left">© 2026 Simpor Dog Center. All rights reserved.</div>
+      <div class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></div>
+    </div>
+  </footer>
+</section>
+
+</body>
+</html>

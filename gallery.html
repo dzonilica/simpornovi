@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gallery — Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>SIMPOR <em>GALLERY</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt=""/>
+    <button class="lb-close" onclick="closeLightboxBtn()">×</button>
+    <button class="lb-prev" onclick="lbNav(-1)">&#8592;</button>
+    <button class="lb-next" onclick="lbNav(1)">&#8594;</button>
+    <div class="lb-info" id="lbInfo"></div>
+  </div>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html" style="color:var(--gold)">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — COUNTER -->
+<div class="hero-counter" id="pageHero">
+  <div class="hero-counter-bar"></div>
+  <div class="hero-counter-num">67</div>
+  <div class="hero-counter-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:20px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Gallery</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:24px;">30+ Years · Every Continent</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(44px,7vw,86px);">
+      Photo <em>Gallery</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:16px;">
+      Champions, competitions, training, friendships — across six continents.
+    </p>
+  </div>
+</div>
+
+<!-- MASONRY GALLERY — ALL IMAGES -->
+    <div class="gallery-masonry" style="margin-top:48px;">
+
+      <!-- 1-17 numbered -->
+      <div class="gm-item" data-lb="1.jpeg" data-caption="Simpor Champions">
+        <img src="1.jpeg" alt="Simpor Champions"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="2.jpeg" data-caption="German Shepherd Excellence">
+        <img src="2.jpeg" alt="German Shepherd"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="3.jpeg" data-caption="Sport Competition">
+        <img src="3.jpeg" alt="Sport"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="4.jpeg" data-caption="Working Dogs">
+        <img src="4.jpeg" alt="Working"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="5.jpeg" data-caption="IGP Training">
+        <img src="5.jpeg" alt="IGP"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="6.jpeg" data-caption="Simpor">
+        <img src="6.jpeg" alt="Simpor"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="7.jpeg" data-caption="Von Simpor Bloodlines">
+        <img src="7.jpeg" alt="Von Simpor"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="8.jpeg" data-caption="Championship Moments">
+        <img src="8.jpeg" alt="Championship"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="9.jpeg" data-caption="World Championship">
+        <img src="9.jpeg" alt="World"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="10.jpeg" data-caption="Simpor Dog Center">
+        <img src="10.jpeg" alt="Simpor"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="11.jpeg" data-caption="Protection Training">
+        <img src="11.jpeg" alt="Protection"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="12.jpeg" data-caption="Simpor">
+        <img src="12.jpeg" alt="Simpor"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="13.jpeg" data-caption="Working Dog Sport">
+        <img src="13.jpeg" alt="Sport"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="14.jpeg" data-caption="International Competition">
+        <img src="14.jpeg" alt="International"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="15.jpeg" data-caption="K9 Training">
+        <img src="15.jpeg" alt="K9"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="16.jpeg" data-caption="IGP Champions">
+        <img src="16.jpeg" alt="IGP"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="g18.jpeg" data-caption="Simpor Dog Center">
+        <img src="g18.jpeg" alt="Simpor"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+      <!-- Homepage images -->
+      <div class="gm-item" data-lb="pocetna1.jpg" data-caption="Simpor Training Session">
+        <img src="pocetna1.jpg" alt="Training"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="pocetna2.jpg" data-caption="Simpor Dog Center">
+        <img src="pocetna2.jpg" alt="Simpor"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+      <!-- Awards -->
+      <div class="gm-item" data-lb="trofej1.jpg" data-caption="Awards & Trophies">
+        <img src="trofej1.jpg" alt="Awards"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+      <!-- Dogs -->
+      <div class="gm-item" data-lb="IMG-20201105-WA0171.jpg" data-caption="German Shepherd">
+        <img src="IMG-20201105-WA0171.jpg" alt="Dog"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201105-WA0169.jpg" data-caption="Von Simpor Dogs">
+        <img src="IMG-20201105-WA0169.jpg" alt="Dogs"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+      <!-- Facility -->
+      <div class="gm-item" data-lb="IMG-20220423-WA0003.jpg" data-caption="Simpor Facility">
+        <img src="IMG-20220423-WA0003.jpg" alt="Facility"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20220423-WA0001.jpg" data-caption="Simpor Center">
+        <img src="IMG-20220423-WA0001.jpg" alt="Center"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20220423-WA0014.jpg" data-caption="Training Grounds">
+        <img src="IMG-20220423-WA0014.jpg" alt="Grounds"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+      <!-- Historical -->
+      <div class="gm-item" data-lb="IMG-20201105-WA0144.jpg" data-caption="Early Career — Dejan Simović">
+        <img src="IMG-20201105-WA0144.jpg" alt="Early Career"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201105-WA0146.jpg" data-caption="Early Trophies">
+        <img src="IMG-20201105-WA0146.jpg" alt="Early"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201105-WA0169.jpg" data-caption="Early Competitions">
+        <img src="IMG-20201105-WA0169.jpg" alt="History"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201105-WA0171.jpg" data-caption="History">
+        <img src="IMG-20201105-WA0171.jpg" alt="History"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201105-WA0174(1).jpg" data-caption="Early Years">
+        <img src="IMG-20201105-WA0174(1).jpg" alt="Early"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201105-WA0178.jpg" data-caption="Von Simpor History">
+        <img src="IMG-20201105-WA0178.jpg" alt="History"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+      <!-- Training sessions -->
+      <div class="gm-item" data-lb="IMG-20200920-WA0012.jpg" data-caption="Training">
+        <img src="IMG-20200920-WA0012.jpg" alt="Training"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20201030-WA0010.jpg" data-caption="Working Dogs">
+        <img src="IMG-20201030-WA0010.jpg" alt="Working"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20210211-WA0007.jpg" data-caption="Simpor 2021">
+        <img src="IMG-20210211-WA0007.jpg" alt="2021"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20210718-WA0004.jpg" data-caption="Summer Training">
+        <img src="IMG-20210718-WA0004.jpg" alt="Training"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20220929-WA0034.jpg" data-caption="Competition 2022">
+        <img src="IMG-20220929-WA0034.jpg" alt="Competition"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20230401-WA0079.jpg" data-caption="Spring 2023">
+        <img src="IMG-20230401-WA0079.jpg" alt="2023"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20230401-WA0080.jpg" data-caption="Simpor 2023">
+        <img src="IMG-20230401-WA0080.jpg" alt="2023"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20230403-WA0001.jpg" data-caption="Training Session 2023">
+        <img src="IMG-20230403-WA0001.jpg" alt="Training"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20230808-WA0016.jpg" data-caption="Summer 2023">
+        <img src="IMG-20230808-WA0016.jpg" alt="2023"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20230814-WA0002.jpg" data-caption="August 2023">
+        <img src="IMG-20230814-WA0002.jpg" alt="Training"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20231105-WA0031.jpg" data-caption="November 2023">
+        <img src="IMG-20231105-WA0031.jpg" alt="2023"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20231130-WA0012.jpg" data-caption="Late 2023">
+        <img src="IMG-20231130-WA0012.jpg" alt="2023"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20240326-WA0109.jpg" data-caption="Spring 2024">
+        <img src="IMG-20240326-WA0109.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20240505-WA0001.jpg" data-caption="May 2024">
+        <img src="IMG-20240505-WA0001.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20240505-WA0014.jpg" data-caption="Simpor 2024">
+        <img src="IMG-20240505-WA0014.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20240505-WA0022.jpg" data-caption="Spring Training 2024">
+        <img src="IMG-20240505-WA0022.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20240529-WA0070.jpg" data-caption="Late Spring 2024">
+        <img src="IMG-20240529-WA0070.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20241004-WA0015.jpg" data-caption="Autumn 2024">
+        <img src="IMG-20241004-WA0015.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20241028-WA0028.jpg" data-caption="October 2024">
+        <img src="IMG-20241028-WA0028.jpg" alt="2024"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251012-WA0017.jpg" data-caption="October 2025">
+        <img src="IMG-20251012-WA0017.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251102-WA0006.jpg" data-caption="November 2025">
+        <img src="IMG-20251102-WA0006.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251208-WA0040.jpg" data-caption="December 2025">
+        <img src="IMG-20251208-WA0040.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251224-WA0042.jpg" data-caption="Christmas Eve 2025">
+        <img src="IMG-20251224-WA0042.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251225-WA0030.jpg" data-caption="Christmas Day 2025">
+        <img src="IMG-20251225-WA0030.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251225-WA0035.jpg" data-caption="Simpor 2025">
+        <img src="IMG-20251225-WA0035.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="IMG-20251225-WA0039.jpg" data-caption="Christmas 2025">
+        <img src="IMG-20251225-WA0039.jpg" alt="2025"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="DSC_9865.jpg" data-caption="Professional Shoot">
+        <img src="DSC_9865.jpg" alt="Pro"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="DSC_6207.jpg" data-caption="Professional Shoot">
+        <img src="DSC_6207.jpg" alt="Pro"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="20260114_140559.jpg" data-caption="January 2026">
+        <img src="20260114_140559.jpg" alt="2026"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="founder1.jpeg" data-caption="Dejan Simović & Family — 30 Years">
+        <img src="founder1.jpeg" alt="Founder"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="timamarijalik.jpg" data-caption="Simpor Team">
+        <img src="timamarijalik.jpg" alt="Team"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="nekilikTimMaja.jpg" data-caption="Simpor Friends">
+        <img src="nekilikTimMaja.jpg" alt="Team"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gm-item" data-lb="slikasatimom.jpg" data-caption="Simpor Team">
+        <img src="slikasatimom.jpg" alt="Team"/><div class="gm-hover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+
+    </div><!-- end masonry -->
+  </div>
+</div>
+
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
+      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2025 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About — Simpor Dog Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>SIMPOR <em>DOG CENTER</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" style="color:var(--gold)">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO — SPLIT (dark left / photo right) -->
+<div class="hero-split" id="pageHero">
+  <div class="hero-split-left">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:24px;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>About</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:28px;">Est. 1994 · FCI 3428</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(44px,6vw,80px);">
+      About<br/><em>Simpor Dog</em><br/>Center
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:24px;max-width:400px;">
+      30+ years of passion, discipline, and international excellence in working and sport dogs.
+    </p>
+  </div>
+  <div class="hero-split-right">
+    <img src="simpord.jpg" alt="Simpor Dog Center Facility" id="heroSplitImg"/>
+    <div class="hero-split-right-overlay"></div>
+  </div>
+  <div class="hero-split-bottom-rule"></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Est. 1994 <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">FCI 3428 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Von Simpor Kennel <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">30+ Years <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Serbia · Europe · World <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Crufts Winner <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Czech National Champion <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">20+ World Top 10 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Est. 1994 <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">FCI 3428 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Von Simpor Kennel <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">30+ Years <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Serbia · Europe · World <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold">Crufts Winner <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<section id="founder" style="background:var(--charcoal); padding:140px 0;">
+  <div class="founder-wrap">
+    <div class="founder-img fade-left">
+      <div class="founder-frame clip-reveal">
+        <img src="founder1.jpeg" alt="Dejan Simović — Founder"/>
+      </div>
+      <div class="founder-fci">FCI 3428</div>
+      <div class="founder-quote">
+        <div class="founder-quote-text">"30 years of passion, discipline, and excellence."</div>
+      </div>
+    </div>
+    <div class="founder-body fade-right">
+      <p class="eyebrow">The Founder</p>
+      <h2 class="founder-name">Dejan<br/><em>Simović</em></h2>
+      <p class="founder-title">Founder · Breeder · Trainer · International Judge</p>
+      <div class="founder-text">
+        <p>Dejan Simović is an internationally recognized dog breeder and trainer with more than 30 years of experience working with German Shepherds and other working breeds. He is the founder of the <em>Von Simpor</em> kennel — bloodlines known worldwide for stable temperament, strong working drives, excellent anatomy, and reliability.</p>
+        <p>Throughout his career, Dejan has placed more than 20 dogs among the Top 10 at World Championships for German Shepherds. With his dogs he has achieved victories across nearly every continent — from Portugal and Spain to Sweden, South Korea, China, Mongolia, and throughout the Americas.</p>
+        <p>A special milestone: <em>Paris Von Simpor</em> became the first and only dog from Serbia in history to win at <em>Crufts</em> — the world's most prestigious all-breed dog show, held in the United Kingdom. In the Czech Republic, one of the strongest working dog nations, Dejan claimed the National Working Championship with <em>Kendy Z. Kraje Husitu</em>.</p>
+        <p>He holds certifications from several international canine organizations as both a helper in working dog sport and a K9 handler — enabling active cooperation in police K9 training and preparation of dogs for KKL, CTP, and other internationally recognized selections.</p>
+      </div>
+      <div class="founder-achievements fade-up">
+        <div class="fa-item"><div class="fa-val">20+</div><div class="fa-lbl">World Top 10 Placements</div></div>
+        <div class="fa-item"><div class="fa-val">1st</div><div class="fa-lbl">Serbian dog to win Crufts</div></div>
+        <div class="fa-item"><div class="fa-val">CZ</div><div class="fa-lbl">National Working Champion</div></div>
+        <div class="fa-item"><div class="fa-val">K9</div><div class="fa-lbl">Police Certified Handler</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY CAREER PHOTOS -->
+<section style="background:var(--black); padding:80px 0 100px;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 80px;">
+    <p class="eyebrow fade-up" style="justify-content:center; margin-bottom:12px;">The Early Years</p>
+    <h2 class="section-h fade-up" style="text-align:center; margin-bottom:56px;">A Career Built from <em>Zero</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="clip-reveal" style="overflow:hidden;height:300px;background:var(--card);">
+        <img src="trofej2.jpg" alt="Early Career" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:300px;background:var(--card);">
+        <img src="rli4.jpg" alt="Early Competitions" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:300px;background:var(--card);">
+        <img src="rli2.jpg" alt="Early Training" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+      <div class="clip-reveal" style="overflow:hidden;height:300px;background:var(--card);">
+        <img src="rli3.jpg" alt="Von Simpor History" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR MISSION -->
+<section style="background:var(--dark); padding:0;">
+  <div class="mission-pull" style="padding:100px 80px;">
+    <div class="mission-pull-inner">
+      <div class="pq-sep fade-up" style="width:60px;height:1px;background:var(--gold);margin:0 auto 48px;"></div>
+      <blockquote class="pq-text fade-up">
+        "Love for dogs began in my childhood, through my family. My grandfather worked with hunting dogs, while my father was devoted to breeding top-quality Setters, Pointers, and German Wirehaired Pointers."
+      </blockquote>
+      <p class="pq-author fade-up" style="margin-top:28px;">— Dejan Simović, Founder</p>
+    </div>
+  </div>
+
+  <div class="mission-full">
+    <div class="mission-full-inner">
+      <p class="eyebrow fade-up">Our Mission</p>
+      <h2 class="section-h fade-up" style="margin-bottom:48px;">In Dejan's <em>Own Words</em></h2>
+      <div class="mission-full-text fade-up">
+        <p>Love for dogs began in my childhood, through my family. My grandfather worked with hunting dogs, while my father was devoted to breeding top-quality Setters, Pointers, and German Wirehaired Pointers. As a child, accompanying my father's dogs to competitions and shows, I developed a deep connection with dogs that gradually became my life's calling.</p>
+        <p>The German Shepherd was my greatest passion from the very beginning. I was fascinated by its beauty, anatomy, and exceptional working abilities. As I grew older, I decided to begin my own German Shepherd breeding program and pursue an independent career as a breeder.</p>
+        <p>Aware of the fact that Germany is the homeland of this breed, I realized that true progress and major success were possible only through working at the very center of the canine world. I spent much of my youth in Germany, training, learning, and competing alongside the world's best trainers at the most prestigious German Shepherd shows in the world.</p>
+        <p>Persistence, discipline, talent, and a strong desire led to results of which I am extremely proud today — both I and the dogs from my breeding program achieved top placements around the world. The German Shepherd, as one of the most recognized breeds globally, gave me the opportunity to meet friends and colleagues from all over the world and to compete on every continent.</p>
+        <p>I shared my knowledge and experience through numerous seminars held around the world, including in <em>Germany, South Korea, and Mongolia</em>. One of my greatest satisfactions is knowing that many professional trainers today work successfully and independently as a result of the knowledge and experience they gained through my school.</p>
+        <p>I continued this mission through <em>Simpor Dog Center</em> — with a clear desire to professionally help and train as many dogs and owners as possible, so that the bond between human and dog can achieve its true meaning.</p>
+        <p>After many years spent abroad, following the highest standards in breeding, training, and working dog programs, I made the decision to bring part of that knowledge, experience, and system of work back to Serbia. In my home region, where I spent my childhood and some of the most beautiful days of my life, in the heart of <em>Šumadija</em> and surrounded by untouched nature, a specially designed space was created for the accommodation, breeding, and professional training of dogs.</p>
+        <p>The sporting spirit still keeps me at the same level of dedication as at the beginning of my career. Maximum attention is focused on genetics, a high level of training, proper nutrition, and veterinary care, so that every dog can achieve its full potential. Together with my team, partners, and friends around the world, the family of Simpor Dog Center continues to grow every day. I will continue to do my best to justify the trust of future clients and their dogs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<div class="achievements-strip">
+  <div class="ach-wrap">
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
+      <div class="ach-text"><strong>Crufts 2023</strong><span>Paris Von Simpor — first Serbian dog to win</span></div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+      <div class="ach-text"><strong>Czech National Champion</strong><span>Working Championship, Czech Republic</span></div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+      <div class="ach-text"><strong>6 Continents</strong><span>Asia, Americas, Europe, Africa, Oceania</span></div>
+    </div>
+    <div class="ach-item fade-up">
+      <div class="ach-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99112" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="ach-text"><strong>Seminars Worldwide</strong><span>Germany, South Korea, Mongolia &amp; more</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FACILITY -->
+<section id="facility" style="background:var(--charcoal); padding:140px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 80px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
+      <div>
+        <p class="eyebrow fade-up">Our Facility</p>
+        <h2 class="section-h fade-up">Designed for <em>Excellence</em></h2>
+        <div class="about-body fade-up" style="margin-top:28px;">
+          <p>Simpor Dog Center is a specially designed complex dedicated to the breeding, accommodation, and professional training of dogs. Spread across more than two hectares of organized space, in the natural surroundings of Šumadija, the center provides conditions for safe, functional, and efficient work with dogs according to modern international standards.</p>
+          <p>The center features both outdoor and indoor training areas, designed to support work in all weather conditions and for different types of training — from obedience and sport disciplines to protection and K9 training.</p>
+          <p>In my home region, in the heart of Šumadija surrounded by untouched nature, a space was created that combines experience gained around the world, a natural environment, and functional infrastructure — with one goal: to provide every dog with the best possible conditions for development, work, and progress.</p>
+        </div>
+        <div style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="fade-up">
+          <div class="fa-item"><div class="fa-val">2+</div><div class="fa-lbl">Hectares of Grounds</div></div>
+          <div class="fa-item"><div class="fa-val">All</div><div class="fa-lbl">Weather Training Areas</div></div>
+          <div class="fa-item"><div class="fa-val">Int.</div><div class="fa-lbl">Modern Standards</div></div>
+          <div class="fa-item"><div class="fa-val">24/7</div><div class="fa-lbl">Professional Care</div></div>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="grid-column:1/3;overflow:hidden;height:300px;background:var(--card);" class="clip-reveal">
+            <img src="res.jpg" alt="Simpor Facility" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+          <div style="overflow:hidden;height:220px;background:var(--card);" class="clip-reveal">
+            <img src="res1.jpg" alt="Training Ground" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+          <div style="overflow:hidden;height:220px;background:var(--card);" class="clip-reveal">
+            <img src="res4.jpg" alt="Simpor Center" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="page-cta fade-up">
+  <h2>Ready to Work With Us?</h2>
+  <p>Whether you're looking for a sport champion, a working dog, or professional training — get in touch and let's talk.</p>
+  <a href="contact.html" class="btn-dark">Contact Simpor</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="inner-footer">
+  <div class="inner-footer-top">
+    <div class="inner-footer-logo">SIM<em>POR</em></div>
+    <nav class="inner-footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="training.html">Training</a>
+      <a href="kennel.html">Kennel</a>
+      <a href="team.html">Team</a>
+      <a href="resort.html">Dog Resort</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="inner-footer-bottom">
+    <span>© 2026 Simpor Dog Center. All rights reserved.</span>
+    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+  </div>
+</footer>
+</body>
+</html>
