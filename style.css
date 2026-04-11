@@ -2098,6 +2098,182 @@ footer {
   .kennel-awards-wrap, .kennel-offer-wrap { padding:0 40px; }
   .kennel-awards-grid { gap:60px; }
 }
+
+/* ─── STARS SECTION (TEAM PAGE) ─── */
+.stars-section {
+  background:var(--dark); padding:100px 0;
+}
+.stars-list {
+  max-width:1280px; margin:0 auto; padding:0 80px;
+  display:flex; flex-direction:column; gap:100px;
+}
+
+/* individual star entry */
+.star-entry {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:100px; align-items:start;
+}
+.star-entry.reverse {
+  grid-template-columns:1fr 1fr;
+  direction:rtl;
+}
+.star-entry.reverse > * {
+  direction:ltr;
+}
+
+/* left image column */
+.star-img-col {
+  display:flex; flex-direction:column; gap:20px;
+}
+
+.star-main-img {
+  position:relative; overflow:hidden; background:var(--card);
+  aspect-ratio:4/5;
+}
+.star-main-img img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.star-main-img:hover img {
+  transform:scale(1.05);
+}
+.star-img-num {
+  position:absolute; top:24px; left:24px; z-index:2;
+  background:rgba(238,207,73,0.15); color:var(--gold);
+  padding:8px 16px; font-size:10px; letter-spacing:2px;
+  text-transform:uppercase; font-weight:600;
+  backdrop-filter:blur(8px); border:1px solid var(--border);
+}
+
+/* gallery thumbnails */
+.star-gallery {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.star-gallery-thumb {
+  overflow:hidden; background:var(--card);
+  aspect-ratio:3/2; cursor:pointer; position:relative;
+  transition:transform 0.3s;
+}
+.star-gallery-thumb img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.star-gallery-thumb:hover img {
+  transform:scale(1.08);
+}
+.star-gallery-thumb::after {
+  content:""; position:absolute; inset:0;
+  background:rgba(238,207,73,0.08);
+  opacity:0; transition:opacity 0.3s;
+}
+.star-gallery-thumb:hover::after {
+  opacity:1;
+}
+
+/* right text column */
+.star-text-col {
+  display:flex; flex-direction:column; gap:24px;
+}
+
+.star-index {
+  font-family:var(--font-d); font-size:72px;
+  font-weight:300; color:var(--border);
+  line-height:1; margin:0;
+}
+
+.star-name {
+  font-family:var(--font-d); font-size:clamp(36px,4vw,52px);
+  font-weight:300; color:var(--off-white); line-height:1.1;
+  margin:0;
+}
+.star-name em {
+  font-style:italic; color:var(--gold);
+}
+
+.star-label {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--text-2); font-weight:500;
+}
+
+.star-divider {
+  width:48px; height:1px; background:var(--gold); margin:16px 0;
+}
+
+/* achievements section */
+.star-achievements {
+  display:flex; flex-direction:column; gap:16px;
+}
+
+.star-ach-item {
+  display:flex; align-items:flex-start; gap:14px;
+}
+
+.star-ach-icon {
+  flex-shrink:0; width:24px; height:24px;
+  display:flex; align-items:center; justify-content:center;
+  margin-top:2px;
+}
+.star-ach-icon svg {
+  width:100%; height:100%;
+}
+
+.star-ach-text strong {
+  display:block; font-size:13px; color:var(--text-1);
+  font-weight:500; line-height:1.4;
+}
+
+/* top badge */
+.star-top-badge {
+  margin-top:24px; padding:16px 20px;
+  background:var(--charcoal); border:1px solid var(--border-dim);
+  display:flex; align-items:center; gap:10px;
+  transition:border-color 0.3s;
+}
+.star-top-badge:hover {
+  border-color:var(--gold);
+}
+.star-top-badge svg {
+  flex-shrink:0; width:14px; height:14px;
+}
+.star-top-badge-text {
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--text-2); font-weight:500;
+}
+
+/* responsive for stars */
+@media (max-width:1100px) {
+  .star-entry, .star-entry.reverse {
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+  .star-entry.reverse {
+    direction:ltr;
+  }
+}
+
+@media (max-width:900px) {
+  .stars-list { padding:0 40px; }
+  .star-entry, .star-entry.reverse {
+    grid-template-columns:1fr;
+    direction:ltr;
+  }
+  .star-gallery { grid-template-columns:repeat(4,1fr); }
+  .star-index { font-size:56px; }
+  .star-name { font-size:clamp(28px,3.5vw,40px); }
+}
+
+@media (max-width:640px) {
+  .stars-list { padding:0 24px; gap:70px; }
+  .star-img-col { gap:14px; }
+  .star-main-img { aspect-ratio:1/1; }
+  .star-gallery { grid-template-columns:repeat(4,1fr); gap:6px; }
+  .star-text-col { gap:16px; }
+  .star-index { font-size:44px; }
+  .star-name { font-size:clamp(24px,5vw,32px); }
+  .star-ach-item { gap:10px; }
+  .stars-section { padding:80px 0; }
+}
+
 @media (max-width:900px) {
   .kennel-awards-grid { grid-template-columns:1fr; gap:48px; }
   .kennel-awards-section, .kennel-offer-section { padding:80px 0; }
