@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Our Stars — Simpor Dog Center · Von Simpor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="pages.js" defer></script>
+<style>
+
+/* ── STARS PAGE STYLES ── */
+
+.stars-intro {
+  background: var(--black);
+  padding: 90px 0 80px;
+  border-bottom: 1px solid var(--border-dim);
+  text-align: center;
+}
+.stars-intro .eyebrow { justify-content: center; margin-bottom: 14px; }
+.stars-intro .section-h { margin-bottom: 20px; }
+.stars-intro-body {
+  max-width: 640px; margin: 0 auto;
+  font-size: 15px; color: var(--text-2);
+  line-height: 1.9; font-weight: 300;
+}
+.stars-count-strip {
+  display: flex; justify-content: center; gap: 0;
+  margin-top: 56px;
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+}
+.stars-count-item {
+  padding: 28px 48px;
+  border-right: 1px solid var(--border-dim);
+  text-align: center;
+}
+.stars-count-item:last-child { border-right: none; }
+.stars-count-n {
+  font-family: var(--font-d);
+  font-size: 42px; font-weight: 300;
+  color: var(--gold); line-height: 1;
+}
+.stars-count-l {
+  font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text-3);
+  margin-top: 6px;
+}
+
+/* ── STAR ENTRY (alternating) ── */
+.stars-section {
+  background: var(--dark);
+  padding: 100px 0;
+}
+.stars-list { max-width: 1320px; margin: 0 auto; padding: 0 60px; }
+
+.star-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border-dim);
+  padding: 80px 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.star-entry.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.star-entry:last-child { border-bottom: none; }
+.star-entry:first-child { padding-top: 0; }
+
+/* Reverse every other entry */
+.star-entry.reverse { direction: rtl; }
+.star-entry.reverse > * { direction: ltr; }
+
+/* ── MAIN IMAGE SIDE ── */
+.star-img-col { position: relative; }
+.star-main-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--card);
+  position: relative;
+}
+.star-main-img img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: var(--card);
+  transition: transform 1s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.star-entry:hover .star-main-img img { transform: scale(1.04); }
+
+.star-img-num {
+  position: absolute;
+  top: 24px; left: 24px;
+  font-family: var(--font-d);
+  font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(5,5,5,0.7);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  z-index: 2;
+}
+
+/* Mini gallery below main image */
+.star-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 4px;
+}
+.star-gallery-thumb {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--card);
+  cursor: pointer;
+  position: relative;
+}
+.star-gallery-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.star-gallery-thumb:hover img { transform: scale(1.1); }
+.star-gallery-thumb::after {
+  content: "+";
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--gold);
+  background: rgba(5,5,5,0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-family: var(--font-d);
+}
+.star-gallery-thumb:hover::after { opacity: 1; }
+
+/* ── TEXT SIDE ── */
+.star-text-col {
+  padding: 40px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.star-index {
+  font-family: var(--font-d);
+  font-size: 80px; font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: -10px;
+}
+.star-name {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 300; color: var(--off-white);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.star-name em { font-style: italic; color: var(--gold); }
+.star-divider {
+  width: 48px; height: 1px;
+  background: var(--gold);
+  margin: 20px 0;
+}
+.star-label {
+  font-size: 9px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 24px;
+}
+
+/* Achievement tags */
+.star-achievements {
+  display: flex; flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.star-ach-item {
+  display: flex; align-items: flex-start;
+  gap: 14px;
+}
+.star-ach-icon {
+  width: 28px; height: 28px; flex-shrink: 0;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+.star-ach-icon svg { width: 12px; height: 12px; }
+.star-ach-text {
+  font-size: 13px; color: var(--text-2);
+  line-height: 1.6; font-weight: 300;
+}
+.star-ach-text strong {
+  color: var(--text-1); font-weight: 500;
+  display: block; font-size: 13px;
+}
+
+/* Special badge for top achievement */
+.star-top-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold-dim);
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+.star-top-badge-text {
+  font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold);
+  font-weight: 500;
+}
+
+/* ── LIGHTBOX ── */
+.star-lb {
+  position: fixed; inset: 0; z-index: 600;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.star-lb.open { opacity: 1; pointer-events: all; }
+.star-lb-img {
+  max-width: 88vw; max-height: 86vh;
+  object-fit: contain;
+  border: 1px solid var(--border);
+}
+.star-lb-close {
+  position: absolute; top: 28px; right: 36px;
+  font-size: 28px; color: var(--gold);
+  cursor: pointer; background: none; border: none;
+  font-family: var(--font-d);
+  opacity: 0.7; transition: opacity 0.2s;
+  line-height: 1;
+}
+.star-lb-close:hover { opacity: 1; }
+.star-lb-prev, .star-lb-next {
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(238,207,73,0.1);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  padding: 14px 18px;
+  cursor: pointer; font-size: 16px;
+  transition: background 0.3s;
+}
+.star-lb-prev { left: 32px; }
+.star-lb-next { right: 32px; }
+.star-lb-prev:hover, .star-lb-next:hover { background: rgba(238,207,73,0.2); }
+
+/* ── CTA ── */
+.page-cta {
+  background: var(--black);
+  padding: 100px 60px;
+  text-align: center;
+  border-top: 1px solid var(--border-dim);
+}
+.page-cta h2 {
+  font-family: var(--font-d);
+  font-size: clamp(32px,4vw,56px);
+  font-weight: 300; color: var(--off-white);
+  margin-bottom: 16px;
+}
+.page-cta h2 em { font-style: italic; color: var(--gold); }
+.page-cta p {
+  font-size: 14px; color: var(--text-2);
+  margin-bottom: 40px; font-weight: 300;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .star-entry {
+    grid-template-columns: 1fr;
+    padding: 48px 0;
+  }
+  .star-entry.reverse { direction: ltr; }
+  .star-text-col { padding: 32px 0 0; }
+  .star-gallery { grid-template-columns: repeat(4, 1fr); }
+  .stars-list { padding: 0 24px; }
+  .stars-count-item { padding: 20px 24px; }
+}
+@media (max-width: 640px) {
+  .star-gallery { grid-template-columns: repeat(3, 1fr); }
+  .stars-count-strip { flex-wrap: wrap; }
+  .stars-count-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--border-dim); }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo inner-loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="logo.png" alt="Simpor"/>
+    <div>SIMPOR <em>DOGS</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub">Kennel &amp; Dog Training Center · FCI 3428</div>
+  </div>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="training.html" onclick="closeMobile()">Training</a>
+  <a href="kennel.html" onclick="closeMobile()">Kennel</a>
+  <a href="available.html" onclick="closeMobile()">Dogs for Sale</a>
+  <a href="ourstars.html" onclick="closeMobile()">Our Stars</a>
+  <a href="team.html" onclick="closeMobile()">Team</a>
+  <a href="resort.html" onclick="closeMobile()">Resort</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="kennel.html">Kennel</a></li>
+    <li class="nav-avail"><a href="available.html">Dogs for Sale</a></li>
+    <li><a href="ourstars.html" style="color:var(--gold)">Our Stars</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="resort.html">Resort</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero" id="pageHero">
+  <img class="page-hero-bg" src="dogs.jpg" alt="Our Stars — Simpor"/>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-overlay-b"></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;">
+      <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Our Stars</span>
+    </div>
+    <div class="page-tag" style="opacity:1;transform:none;">Von Simpor · FCI 3428</div>
+    <h1 class="page-hero-h1" style="font-size:clamp(50px,8vw,100px);">
+      Our <em>Stars</em>
+    </h1>
+    <p class="page-hero-sub" style="opacity:1;transform:none;max-width:560px;">
+      Championship dogs that carry the name Von Simpor across the world's greatest show rings — each one a testament to three decades of excellence.
+    </p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="stars-intro">
+  <div style="max-width:1000px;margin:0 auto;padding:0 48px;">
+    <p class="eyebrow fade-up">Championship Legacy</p>
+    <h2 class="section-h fade-up">Titles That Define <em>Excellence</em></h2>
+    <p class="stars-intro-body fade-up">
+      From Belgrade to Berlin, London to Seoul — the Von Simpor name stands behind some of the most decorated German Shepherds in the international show circuit. These are the dogs that built our reputation.
+    </p>
+    <div class="stars-count-strip fade-up">
+      <div class="stars-count-item">
+        <div class="stars-count-n">15</div>
+        <div class="stars-count-l">Champion Dogs</div>
+      </div>
+      <div class="stars-count-item">
+        <div class="stars-count-n">30+</div>
+        <div class="stars-count-l">Major Titles</div>
+      </div>
+      <div class="stars-count-item">
+        <div class="stars-count-n">12</div>
+        <div class="stars-count-l">Countries</div>
+      </div>
+      <div class="stars-count-item">
+        <div class="stars-count-n">30+</div>
+        <div class="stars-count-l">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARS LIST -->
+<section class="stars-section">
+  <div class="stars-list">
+
+    <!-- 1. Best von Simpor -->
+    <div class="star-entry" data-index="1">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 01</div>
+          <img src="Best Von Simpor.png" alt="Best von Simpor" onerror="this.src='dogs.jpg'"/>
+        </div>
+        <div class="star-gallery">
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">01</div>
+        <h2 class="star-name">Best <em>von Simpor</em></h2>
+        <div class="star-label">Male · Von Simpor Kennel</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 1 — Serbian Sieger Show</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 1 · Serbian Sieger</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Romeo von Simpor -->
+    <div class="star-entry reverse" data-index="2">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 02</div>
+          <img src="Romeo von Simpor.jpg" alt="Romeo von Simpor" onerror="this.src='dogs2.jpg'"/>
+        </div>
+        <div class="star-gallery">
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">02</div>
+        <h2 class="star-name">Romeo <em>von Simpor</em></h2>
+        <div class="star-label">Male · Von Simpor Kennel</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 3 — Croatian Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 2 — Serbia Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>V4 — Spain Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>Best Progeny Group — Spain Sieger Show</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">4 International Titles</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Kostas von Timohaus -->
+    <div class="star-entry" data-index="3">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 03</div>
+          <img src="Kostas vom Timohaus.jpg" alt="Kostas von Timohaus" onerror="this.src='dogs3.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Kostas TimoHaus2.png"]' data-idx="0">
+            <img src="Kostas TimoHaus2.png" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">03</div>
+        <h2 class="star-name">Kostas <em>von Timohaus</em></h2>
+        <div class="star-label">Male · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 4 — Bundessiegerzuchtschau (BSZS)</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 4 · BSZS Germany</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Paris von Simpor -->
+    <div class="star-entry reverse" data-index="4">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 04</div>
+          <img src="PARIS VON Simpor/IMG-20230401-WA0043.jpg" alt="Paris von Simpor" onerror="this.src='dogs.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["PARIS VON Simpor/IMG-20201105-WA0172.jpg","PARIS VON Simpor/IMG-20230401-WA0043.jpg","PARIS VON Simpor/IMG-20230401-WA0055.jpg","PARIS VON Simpor/IMG-20230401-WA0072.jpg"]' data-idx="0">
+            <img src="PARIS VON Simpor/IMG-20201105-WA0172.jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["PARIS VON Simpor/IMG-20201105-WA0172.jpg","PARIS VON Simpor/IMG-20230401-WA0043.jpg","PARIS VON Simpor/IMG-20230401-WA0055.jpg","PARIS VON Simpor/IMG-20230401-WA0072.jpg"]' data-idx="1">
+            <img src="PARIS VON Simpor/IMG-20201105-WA0123.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["PARIS VON Simpor/IMG-20201105-WA0172.jpg","PARIS VON Simpor/IMG-20230401-WA0043.jpg","PARIS VON Simpor/IMG-20230401-WA0055.jpg","PARIS VON Simpor/IMG-20230401-WA0072.jpg"]' data-idx="2">
+            <img src="PARIS VON Simpor/IMG-20230401-WA0055.jpg" alt="" onerror="this.src='dogs3.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["PARIS VON Simpor/IMG-20201105-WA0172.jpg","PARIS VON Simpor/IMG-20230401-WA0043.jpg","PARIS VON Simpor/IMG-20230401-WA0055.jpg","PARIS VON Simpor/IMG-20230401-WA0072.jpg"]' data-idx="3">
+            <img src="PARIS VON Simpor/IMG-20230401-WA0072.jpg" alt="" onerror="this.src='dogs4.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">04</div>
+        <h2 class="star-name">Paris <em>von Simpor</em></h2>
+        <div class="star-label">Female · Von Simpor Kennel</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 5 — BSZS Germany</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>3× VA 1 — UK Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>Crufts Winner · Best Mother Group</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">Crufts Winner · 3× UK VA 1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Madrid von Simpor -->
+    <div class="star-entry" data-index="5">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 05</div>
+          <img src="Madrid von Simpor/IMG-20201105-WA0167.jpg" alt="Madrid von Simpor" onerror="this.src='dogs.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Madrid von Simpor/IMG-20201105-WA0169.jpg","Madrid von Simpor/IMG-20230403-WA0000.jpg","Madrid von Simpor/IMG-20230403-WA0001.jpg","Madrid von Simpor/IMG-20230403-WA0002.jpg"]' data-idx="0">
+            <img src="Madrid von Simpor/IMG-20201105-WA0169.jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Madrid von Simpor/IMG-20201105-WA0169.jpg","Madrid von Simpor/IMG-20230403-WA0000.jpg","Madrid von Simpor/IMG-20230403-WA0001.jpg","Madrid von Simpor/IMG-20230403-WA0002.jpg"]' data-idx="1">
+            <img src="Madrid von Simpor/IMG-20230403-WA0000.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Madrid von Simpor/IMG-20201105-WA0169.jpg","Madrid von Simpor/IMG-20230403-WA0000.jpg","Madrid von Simpor/IMG-20230403-WA0001.jpg","Madrid von Simpor/IMG-20230403-WA0002.jpg"]' data-idx="2">
+            <img src="Madrid von Simpor/IMG-20230403-WA0001.jpg" alt="" onerror="this.src='dogs3.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Madrid von Simpor/IMG-20201105-WA0169.jpg","Madrid von Simpor/IMG-20230403-WA0000.jpg","Madrid von Simpor/IMG-20230403-WA0001.jpg","Madrid von Simpor/IMG-20230403-WA0002.jpg"]' data-idx="3">
+            <img src="Madrid von Simpor/IMG-20230403-WA0002.jpg" alt="" onerror="this.src='dogs4.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">05</div>
+        <h2 class="star-name">Madrid <em>von Simpor</em></h2>
+        <div class="star-label">Male · Von Simpor Kennel</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 9 — BSZS Germany</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>VA 2 — Asia Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>Best Progeny Group</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">VA 2 Asia · Best Progeny</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Onur vom Haus Bifo -->
+    <div class="star-entry reverse" data-index="6">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 06</div>
+          <img src="Onur vom Haus Biffo/IMG-20201105-WA0174.jpg" alt="Onur vom Haus Bifo" onerror="this.src='dogs2.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Onur vom Haus Biffo/IMG-20201105-WA0174(1).jpg","Onur vom Haus Biffo/IMG-20201105-WA0174.jpg","Onur vom Haus Biffo/IMG-20201105-WA0176.jpg","Onur vom Haus Biffo/IMG-20201105-WA0177.jpg"]' data-idx="0">
+            <img src="Onur vom Haus Biffo/IMG-20201105-WA0174(1).jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Onur vom Haus Biffo/IMG-20201105-WA0174(1).jpg","Onur vom Haus Biffo/IMG-20201105-WA0174.jpg","Onur vom Haus Biffo/IMG-20201105-WA0176.jpg","Onur vom Haus Biffo/IMG-20201105-WA0177.jpg"]' data-idx="1">
+            <img src="Onur vom Haus Biffo/IMG-20201105-WA0151.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Onur vom Haus Biffo/IMG-20201105-WA0174(1).jpg","Onur vom Haus Biffo/IMG-20201105-WA0174.jpg","Onur vom Haus Biffo/IMG-20201105-WA0176.jpg","Onur vom Haus Biffo/IMG-20201105-WA0177.jpg"]' data-idx="2">
+            <img src="Onur vom Haus Biffo/IMG-20201105-WA0176.jpg" alt="" onerror="this.src='dogs3.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Onur vom Haus Biffo/IMG-20201105-WA0174(1).jpg","Onur vom Haus Biffo/IMG-20201105-WA0174.jpg","Onur vom Haus Biffo/IMG-20201105-WA0176.jpg","Onur vom Haus Biffo/IMG-20201105-WA0177.jpg"]' data-idx="3">
+            <img src="Onur vom Haus Biffo/IMG-20201105-WA0177.jpg" alt="" onerror="this.src='dogs4.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">06</div>
+        <h2 class="star-name">Onur <em>vom Haus Bifo</em></h2>
+        <div class="star-label">Male · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>VA 1 — Serbian Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>V4 — China Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>Best Progeny Group</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">VA 1 Serbia · V4 China</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Jehu Primo Grande -->
+    <div class="star-entry" data-index="7">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 07</div>
+          <img src="Jehu%20Primo%20Grande/WhatsApp%20Image%202026-04-11%20at%2021.17.08.jpeg" alt="Jehu Primo Grande" onerror="this.src='dogs3.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Jehu Primo Grande/WhatsApp Image 2026-04-11 at 21.17.08.jpeg","Jehu Primo Grande/WhatsApp Image 2026-04-11 at 21.17.09.jpeg"]' data-idx="0">
+            <img src="Jehu%20Primo%20Grande/WhatsApp%20Image%202026-04-11%20at%2021.17.08.jpeg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Jehu Primo Grande/WhatsApp Image 2026-04-11 at 21.17.08.jpeg","Jehu Primo Grande/WhatsApp Image 2026-04-11 at 21.17.09.jpeg"]' data-idx="1">
+            <img src="Jehu%20Primo%20Grande/WhatsApp%20Image%202026-04-11%20at%2021.17.09.jpeg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">07</div>
+        <h2 class="star-name">Jehu <em>Primo Grande</em></h2>
+        <div class="star-label">Male · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 7, VA — Italy Sieger Show</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">VA · Italy Sieger Show</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Yankee von Feuermelder -->
+    <div class="star-entry reverse" data-index="8">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 08</div>
+          <img src="Yankee%20vom%20Feurmelder/WhatsApp%20Image%202026-04-11%20at%2021.19.33.jpeg" alt="Yankee von Feuermelder" onerror="this.src='dogs4.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Yankee vom Feurmelder/WhatsApp Image 2026-04-11 at 21.19.33.jpeg"]' data-idx="0">
+            <img src="Yankee%20vom%20Feurmelder/WhatsApp%20Image%202026-04-11%20at%2021.19.33.jpeg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">08</div>
+        <h2 class="star-name">Yankee <em>von Feuermelder</em></h2>
+        <div class="star-label">Male · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 2, VA — BSZS Germany</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 2, VA · BSZS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Karmen Feetback -->
+    <div class="star-entry" data-index="9">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 09</div>
+          <img src="KARMEN FEETBACK.webp" alt="Karmen Feetback" onerror="this.src='dogs.jpg'"/>
+        </div>
+        <div class="star-gallery">
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">09</div>
+        <h2 class="star-name">Karmen <em>Feetback</em></h2>
+        <div class="star-label">Female · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 16 — BSZS Germany</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 16 · BSZS Germany</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Puky Tigback Hof -->
+    <div class="star-entry reverse" data-index="10">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 10</div>
+          <img src="Puky Tigback Hof.jpg" alt="Puky Tigback Hof" onerror="this.src='dogs2.jpg'"/>
+        </div>
+        <div class="star-gallery">
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">10</div>
+        <h2 class="star-name">Puky <em>Tigback Hof</em></h2>
+        <div class="star-label">Female · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 1 — Serbian Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>V9 — China Sieger Show</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 1 Serbia · V9 China</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Leo Feetback -->
+    <div class="star-entry" data-index="11">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 11</div>
+          <img src="Leo Feetback.webp" alt="Leo Feetback" onerror="this.src='dogs3.jpg'"/>
+        </div>
+        <div class="star-gallery">
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">11</div>
+        <h2 class="star-name">Leo <em>Feetback</em></h2>
+        <div class="star-label">Male · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 27 — BSZS Germany</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 27 · BSZS Germany</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Gayvalis Paloma -->
+    <div class="star-entry reverse" data-index="12">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 12</div>
+          <img src="Gayvilas Paloma/IMG-20200813-WA0000.jpg" alt="Gayvalis Paloma" onerror="this.src='dogs4.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Gayvilas Paloma/IMG-20201105-WA0069.jpg","Gayvilas Paloma/IMG-20201105-WA0123.jpg"]' data-idx="0">
+            <img src="Gayvilas Paloma/IMG-20201105-WA0069.jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Gayvilas Paloma/IMG-20201105-WA0069.jpg","Gayvilas Paloma/IMG-20201105-WA0123.jpg"]' data-idx="1">
+            <img src="Gayvilas Paloma/IMG-20201105-WA0123.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">12</div>
+        <h2 class="star-name">Gayvalis <em>Paloma</em></h2>
+        <div class="star-label">Female · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>SG 17 — BSZS Germany</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">SG 17 · BSZS Germany</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Nicky Feetback -->
+    <div class="star-entry" data-index="13">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 13</div>
+          <img src="Nicki Feetback/IMG-20201105-WA0153.jpg" alt="Nicky Feetback" onerror="this.src='dogs.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Nicki Feetback/IMG-20201105-WA0154.jpg","Nicki Feetback/IMG-20251208-WA0043.jpg"]' data-idx="0">
+            <img src="Nicki Feetback/IMG-20201105-WA0154.jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Nicki Feetback/IMG-20201105-WA0154.jpg","Nicki Feetback/IMG-20251208-WA0043.jpg"]' data-idx="1">
+            <img src="Nicki Feetback/IMG-20251208-WA0043.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">13</div>
+        <h2 class="star-name">Nicky <em>Feetback</em></h2>
+        <div class="star-label">Female · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>2× SG 1 — Korea Sieger Show</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>3× V1</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">2× SG 1 Korea · 3× V1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Gotti Feetback -->
+    <div class="star-entry reverse" data-index="14">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 14</div>
+          <img src="Gotti Feetback/IMG-20231105-WA0031.jpg" alt="Gotti Feetback" onerror="this.src='dogs2.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Gotti Feetback/IMG-20231105-WA0017.jpg","Gotti Feetback/IMG-20231105-WA0022.jpg","Gotti Feetback/IMG-20231105-WA0031.jpg","Gotti Feetback/IMG-20251224-WA0040.jpg"]' data-idx="0">
+            <img src="Gotti Feetback/IMG-20231105-WA0017.jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Gotti Feetback/IMG-20231105-WA0017.jpg","Gotti Feetback/IMG-20231105-WA0022.jpg","Gotti Feetback/IMG-20231105-WA0031.jpg","Gotti Feetback/IMG-20251224-WA0040.jpg"]' data-idx="1">
+            <img src="Gotti Feetback/IMG-20231105-WA0022.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Gotti Feetback/IMG-20231105-WA0017.jpg","Gotti Feetback/IMG-20231105-WA0022.jpg","Gotti Feetback/IMG-20231105-WA0031.jpg","Gotti Feetback/IMG-20251224-WA0040.jpg"]' data-idx="2">
+            <img src="Gotti Feetback/IMG-20231105-WA0011.jpg" alt="" onerror="this.src='dogs3.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Gotti Feetback/IMG-20231105-WA0017.jpg","Gotti Feetback/IMG-20231105-WA0022.jpg","Gotti Feetback/IMG-20231105-WA0031.jpg","Gotti Feetback/IMG-20251224-WA0040.jpg"]' data-idx="3">
+            <img src="Gotti Feetback/IMG-20251224-WA0040.jpg" alt="" onerror="this.src='dogs4.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">14</div>
+        <h2 class="star-name">Gotti <em>Feetback</em></h2>
+        <div class="star-label">Male · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>VA 1 — Serbian Sieger Show</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">VA 1 · Serbian Sieger</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Kendy z Kraje Husitu -->
+    <div class="star-entry" data-index="15">
+      <div class="star-img-col">
+        <div class="star-main-img">
+          <div class="star-img-num">No. 15</div>
+          <img src="Kendy z Kraje Husitu/IMG-20210211-WA0007(1).jpg" alt="Kendy z Kraje Husitu" onerror="this.src='dogs3.jpg'"/>
+        </div>
+        <div class="star-gallery">
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Kendy z Kraje Husitu/IMG-20200920-WA0012.jpg","Kendy z Kraje Husitu/IMG-20200920-WA0023.jpg","Kendy z Kraje Husitu/IMG-20210211-WA0007(1).jpg","Kendy z Kraje Husitu/IMG-20210718-WA0004.jpg"]' data-idx="0">
+            <img src="Kendy z Kraje Husitu/IMG-20200920-WA0012.jpg" alt="" onerror="this.src='dogs.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Kendy z Kraje Husitu/IMG-20200920-WA0012.jpg","Kendy z Kraje Husitu/IMG-20200920-WA0023.jpg","Kendy z Kraje Husitu/IMG-20210211-WA0007(1).jpg","Kendy z Kraje Husitu/IMG-20210718-WA0004.jpg"]' data-idx="1">
+            <img src="Kendy z Kraje Husitu/IMG-20200920-WA0023.jpg" alt="" onerror="this.src='dogs2.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Kendy z Kraje Husitu/IMG-20200920-WA0012.jpg","Kendy z Kraje Husitu/IMG-20200920-WA0023.jpg","Kendy z Kraje Husitu/IMG-20210211-WA0007(1).jpg","Kendy z Kraje Husitu/IMG-20210718-WA0004.jpg"]' data-idx="2">
+            <img src="Kendy z Kraje Husitu/IMG-20190722-WA0023.jpg" alt="" onerror="this.src='dogs3.jpg'"/>
+          </div>
+          <div class="star-gallery-thumb" onclick="openLb(this)" data-imgs='["Kendy z Kraje Husitu/IMG-20200920-WA0012.jpg","Kendy z Kraje Husitu/IMG-20200920-WA0023.jpg","Kendy z Kraje Husitu/IMG-20210211-WA0007(1).jpg","Kendy z Kraje Husitu/IMG-20210718-WA0004.jpg"]' data-idx="3">
+            <img src="Kendy z Kraje Husitu/IMG-20210718-WA0004.jpg" alt="" onerror="this.src='dogs4.jpg'"/>
+          </div>
+        </div>
+      </div>
+      <div class="star-text-col">
+        <div class="star-index">15</div>
+        <h2 class="star-name">Kendy <em>z Kraje Husitu</em></h2>
+        <div class="star-label">Female · Von Simpor Program</div>
+        <div class="star-divider"></div>
+        <div class="star-achievements">
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>1st Place — MCCKNO</strong>
+            </div>
+          </div>
+          <div class="star-ach-item">
+            <div class="star-ach-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="star-ach-text">
+              <strong>9th Place — WUSV World Championship</strong>
+            </div>
+          </div>
+        </div>
+        <div class="star-top-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="star-top-badge-text">WUSV World · MCCKNO Winner</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="page-cta">
+  <h2>Interested in Our <em>Bloodlines?</em></h2>
+  <p>Explore puppies and available dogs carrying championship genetics from our star dogs.</p>
+  <a href="available.html" class="btn-gold">View Available Dogs →</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="star-lb" id="starLb">
+  <button class="star-lb-close" onclick="closeLb()">×</button>
+  <button class="star-lb-prev" onclick="lbNav(-1)">&#8592;</button>
+  <img class="star-lb-img" id="starLbImg" src="" alt=""/>
+  <button class="star-lb-next" onclick="lbNav(1)">&#8594;</button>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc">Professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+      <div class="f-socials">
+        <a href="https://www.instagram.com/simpor_dogcentar/" target="_blank" class="f-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/simpor_dog_resort/" target="_blank" class="f-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/simpork9/?locale=sr_RS" target="_blank" class="f-soc" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@simpordogcenter" target="_blank" class="f-soc" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96C1 8.13 1 12 1 12s0 3.87.46 5.58a2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.97C23 15.87 23 12 23 12s0-3.87-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Navigation</div>
+      <ul class="f-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="training.html">Services</a></li>
+        <li><a href="available.html">Dogs for Sale</a></li>
+        <li><a href="ourstars.html">Our Stars</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="resort.html">Dog Resort</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Services</div>
+      <ul class="f-links">
+        <li><a href="training.html">Sport &amp; Competition</a></li>
+        <li><a href="training.html">Kennel &amp; Breeding</a></li>
+        <li><a href="training.html">K9 &amp; Protection</a></li>
+        <li><a href="training.html">Family Dogs</a></li>
+        <li><a href="training.html">Training</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="#">Serbia · Europe · World</a></li>
+        <li><a href="#">FCI 3428</a></li>
+        <li><a href="#">Von Simpor Kennel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left">© 2026 Simpor Dog Center. All rights reserved.</div>
+    <div class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+<script>
+// ── LIGHTBOX ──
+let lbImgs = [], lbIdx = 0;
+
+function openLb(el) {
+  lbImgs = JSON.parse(el.dataset.imgs);
+  lbIdx = parseInt(el.dataset.idx);
+  document.getElementById('starLbImg').src = lbImgs[lbIdx];
+  document.getElementById('starLb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('starLb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbNav(dir) {
+  lbIdx = (lbIdx + dir + lbImgs.length) % lbImgs.length;
+  document.getElementById('starLbImg').src = lbImgs[lbIdx];
+}
+document.getElementById('starLb').addEventListener('click', function(e) {
+  if (e.target === this) closeLb();
+});
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('starLb').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+});
+
+// ── SCROLL REVEAL ──
+const entries = document.querySelectorAll('.star-entry');
+const io = new IntersectionObserver((obs) => {
+  obs.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+entries.forEach(e => io.observe(e));
+
+// ── FADE-UP ──
+const fadeEls = document.querySelectorAll('.fade-up');
+const fadeIo = new IntersectionObserver((obs) => {
+  obs.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      fadeIo.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+fadeEls.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  fadeIo.observe(el);
+});
+</script>
+</body>
+</html>

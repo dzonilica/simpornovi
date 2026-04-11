@@ -10,6 +10,189 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="style.css">
 <script src="pages.js" defer></script>
+<style>
+/* ══ PROG-CARD-SPLIT — samo za Obedience sekciju ══ */
+.prog-grid-split {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.prog-card-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 440px;
+  position: relative;
+}
+.pc-text {
+  padding: 52px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pc-media {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+.pc-main-img {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: var(--card);
+  min-height: 280px;
+}
+.pc-main-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+  display: block;
+}
+.prog-card-split:hover .pc-main-img img { transform: scale(1.05); }
+.pc-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  height: 86px;
+  flex-shrink: 0;
+}
+.pc-thumb {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: var(--card);
+}
+.pc-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+.pc-thumb:hover img { transform: scale(1.12); }
+.pc-thumb::after {
+  content: "+";
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--gold);
+  background: rgba(5,5,5,0.45);
+  opacity: 0; transition: opacity 0.25s;
+  font-family: var(--font-d);
+}
+.pc-thumb:hover::after { opacity: 1; }
+
+/* Train Lightbox */
+#trainLb {
+  position: fixed; inset: 0; z-index: 700;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#trainLb.open { opacity: 1; pointer-events: all; }
+#trainLbImg {
+  max-width: 88vw; max-height: 86vh;
+  object-fit: contain;
+  border: 1px solid rgba(238,207,73,0.2);
+}
+.tlb-close {
+  position: absolute; top: 28px; right: 36px;
+  font-size: 30px; color: var(--gold);
+  cursor: pointer; background: none; border: none;
+  font-family: var(--font-d);
+  opacity: 0.7; transition: opacity 0.2s; line-height: 1;
+}
+.tlb-close:hover { opacity: 1; }
+.tlb-prev, .tlb-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(238,207,73,0.1);
+  border: 1px solid rgba(238,207,73,0.2);
+  color: var(--gold); padding: 14px 18px;
+  cursor: pointer; font-size: 16px;
+  transition: background 0.3s;
+}
+.tlb-prev { left: 32px; }
+.tlb-next { right: 32px; }
+.tlb-prev:hover, .tlb-next:hover { background: rgba(238,207,73,0.2); }
+
+@media (max-width: 900px) {
+  .prog-card-split { grid-template-columns: 1fr; }
+  .pc-main-img { min-height: 260px; }
+  .pc-text { padding: 36px 28px; }
+}
+
+/* ══ OBEDIENCE VIDEO SECTION ══ */
+.ob-videos-section {
+  background: var(--dark);
+  padding: 80px 0 90px;
+  border-top: 1px solid var(--border);
+}
+.ob-videos-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.ob-videos-title {
+  font-family: var(--font-d);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 52px;
+  letter-spacing: 0.02em;
+}
+.ob-videos-title em {
+  font-style: italic;
+  color: #fff;
+}
+.ob-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ob-video-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+.ob-video-card:hover { border-color: var(--gold); }
+.ob-video-wrap {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+.ob-video-wrap img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.ob-video-card:hover .ob-video-wrap img { transform: scale(1.05); }
+.ob-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.6));
+  pointer-events: none;
+}
+.ob-video-card:hover .ob-play-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  .ob-videos-grid { grid-template-columns: 1fr; }
+  .ob-videos-inner { padding: 0 24px; }
+}
+</style>
 </head>
 <body>
 
@@ -29,7 +212,8 @@
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="training.html" onclick="closeMobile()">Training</a>
   <a href="kennel.html" onclick="closeMobile()">Kennel</a>
-  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="available.html" onclick="closeMobile()">Dogs for Sale</a>
+  <a href="ourstars.html" onclick="closeMobile()">Our Stars</a>
   <a href="team.html" onclick="closeMobile()">Team</a>
   <a href="resort.html" onclick="closeMobile()">Resort</a>
   <a href="gallery.html" onclick="closeMobile()">Gallery</a>
@@ -45,7 +229,8 @@
     <li><a href="about.html">About</a></li>
     <li><a href="training.html" style="color:var(--gold)">Training</a></li>
     <li><a href="kennel.html">Kennel</a></li>
-    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li class="nav-avail"><a href="available.html">Dogs for Sale</a></li>
+    <li><a href="ourstars.html">Our Stars</a></li>
     <li><a href="team.html">Team</a></li>
     <li><a href="resort.html">Resort</a></li>
     <li><a href="gallery.html">Gallery</a></li>
@@ -133,53 +318,106 @@
         </p>
       </div>
     </div>
-    <div class="prog-grid">
+    <div class="prog-grid-split">
 
-      <div class="prog-card">
-        <div class="prog-level">Level 01</div>
-        <div class="prog-name">Basic Obedience</div>
-        <p class="prog-desc">The focus of this training is on basic commands, proper leash walking, socialization, and reducing unwanted behavior. This level creates the foundation for further work and allows owners to communicate with their dog more easily and confidently in everyday life.</p>
-        <div class="prog-tags">
-          <span class="prog-tag">All Breeds</span>
-          <span class="prog-tag">All Ages</span>
-          <span class="prog-tag">Foundation Level</span>
+      <!-- Basic Obedience -->
+      <div class="prog-card-split">
+        <div class="pc-text">
+          <div class="prog-level">Obedience 01</div>
+          <div class="prog-name">Basic Obedience</div>
+          <p class="prog-desc">The focus of this training is on basic commands, proper leash walking, socialization, and reducing unwanted behavior. This level creates the foundation for further work and allows owners to communicate with their dog more easily and confidently in everyday life.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">All Breeds</span>
+            <span class="prog-tag">All Ages</span>
+            <span class="prog-tag">Foundation Level</span>
+          </div>
+        </div>
+        <div class="pc-media">
+          <div class="pc-main-img"><img src="Basic/16.jpg" alt="Basic Obedience Training" onerror="this.src='dogs.jpg'"/></div>
+          <div class="pc-gallery">
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Basic/3.jpg","Basic/46.jpeg","Basic/47.jpeg","Basic/IMG-20200920-WA0023.jpg"]' data-idx="0"><img src="Basic/3.jpg" alt="" onerror="this.src='dogs2.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Basic/3.jpg","Basic/46.jpeg","Basic/47.jpeg","Basic/IMG-20200920-WA0023.jpg"]' data-idx="1"><img src="Basic/46.jpeg" alt="" onerror="this.src='dogs3.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Basic/3.jpg","Basic/46.jpeg","Basic/47.jpeg","Basic/IMG-20200920-WA0023.jpg"]' data-idx="2"><img src="Basic/47.jpeg" alt="" onerror="this.src='dogs4.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Basic/3.jpg","Basic/46.jpeg","Basic/47.jpeg","Basic/IMG-20200920-WA0023.jpg"]' data-idx="3"><img src="Basic/IMG-20200920-WA0023.jpg" alt="" onerror="this.src='dogs.jpg'"/></div>
+          </div>
         </div>
       </div>
 
-      <div class="prog-card">
-        <div class="prog-level">Level 02</div>
-        <div class="prog-name">Intermediate Obedience</div>
-        <p class="prog-desc">The basic obedience program is intended for dogs that already have basic control and are ready for more structured work. Training focuses on command precision, stability in different environments, and strengthening the dog's concentration. The goal is for the dog to respond reliably to commands in real-life situations.</p>
-        <div class="prog-tags">
-          <span class="prog-tag">With Basic Foundation</span>
-          <span class="prog-tag">Precision Work</span>
-          <span class="prog-tag">Multi-Environment</span>
+      <!-- Advanced -->
+      <div class="prog-card-split">
+        <div class="pc-text">
+          <div class="prog-level">Obedience 02</div>
+          <div class="prog-name">Advanced — Tricks &amp; Improvements</div>
+          <p class="prog-desc">The advanced obedience level is intended for dogs that have already completed the basic and intermediate stages. The program focuses on further developing control, creative exercises, tricks, and advanced commands that improve the dog's concentration, flexibility, and working motivation. Ideal for owners wanting a higher level of communication and mental stimulation.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Advanced Level</span>
+            <span class="prog-tag">Mental Stimulation</span>
+            <span class="prog-tag">Tricks &amp; Precision</span>
+          </div>
+        </div>
+        <div class="pc-media">
+          <div class="pc-main-img"><img src="Advanced/14.jpg" alt="Advanced Obedience" onerror="this.src='dogs2.jpg'"/></div>
+          <div class="pc-gallery">
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Advanced/5.jpg","Advanced/6.jpg","Advanced/g12.jpg","Advanced/trening2.jpeg"]' data-idx="0"><img src="Advanced/5.jpg" alt="" onerror="this.src='dogs.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Advanced/5.jpg","Advanced/6.jpg","Advanced/g12.jpg","Advanced/trening2.jpeg"]' data-idx="1"><img src="Advanced/6.jpg" alt="" onerror="this.src='dogs2.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Advanced/5.jpg","Advanced/6.jpg","Advanced/g12.jpg","Advanced/trening2.jpeg"]' data-idx="2"><img src="Advanced/g12.jpg" alt="" onerror="this.src='dogs3.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Advanced/5.jpg","Advanced/6.jpg","Advanced/g12.jpg","Advanced/trening2.jpeg"]' data-idx="3"><img src="Advanced/trening2.jpeg" alt="" onerror="this.src='dogs4.jpg'"/></div>
+          </div>
         </div>
       </div>
 
-      <div class="prog-card">
-        <div class="prog-level">Level 03</div>
-        <div class="prog-name">BH / IGP Obedience</div>
-        <p class="prog-desc">This program is designed for dogs preparing for BH and IGP examinations in accordance with current international regulations. Training includes sport-level obedience work, precision in performing exercises, stability under pressure, and reliable work in different situations. Special emphasis is placed on correct technique and preparation for examination and competition.</p>
-        <div class="prog-tags">
-          <span class="prog-tag">Sport Level</span>
-          <span class="prog-tag">IGP 1–3</span>
-          <span class="prog-tag">Competition Ready</span>
-          <span class="prog-tag">FCI Standards</span>
+      <!-- BH/IGP Obedience -->
+      <div class="prog-card-split">
+        <div class="pc-text">
+          <div class="prog-level">Obedience 03</div>
+          <div class="prog-name">BH / IGP Obedience</div>
+          <p class="prog-desc">This program is designed for dogs preparing for BH and IGP examinations in accordance with current international regulations. Training includes sport-level obedience work, precision in performing exercises, stability under pressure, and reliable work in different situations. Special emphasis is placed on correct technique and preparation for examination and competition.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Sport Level</span>
+            <span class="prog-tag">IGP 1–3</span>
+            <span class="prog-tag">Competition Ready</span>
+            <span class="prog-tag">FCI Standards</span>
+          </div>
+        </div>
+        <div class="pc-media">
+          <div class="pc-main-img"><img src="Sport/25.jpg" alt="BH IGP Obedience" onerror="this.src='dogs3.jpg'"/></div>
+          <div class="pc-gallery">
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Sport/39.jpeg","Sport/40.jpeg","Sport/dogs4.jpg","Sport/eksn3.jpg"]' data-idx="0"><img src="Sport/39.jpeg" alt="" onerror="this.src='dogs.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Sport/39.jpeg","Sport/40.jpeg","Sport/dogs4.jpg","Sport/eksn3.jpg"]' data-idx="1"><img src="Sport/40.jpeg" alt="" onerror="this.src='dogs2.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Sport/39.jpeg","Sport/40.jpeg","Sport/dogs4.jpg","Sport/eksn3.jpg"]' data-idx="2"><img src="Sport/dogs4.jpg" alt="" onerror="this.src='dogs3.jpg'"/></div>
+            <div class="pc-thumb" onclick="openTLb(this)" data-imgs='["Sport/39.jpeg","Sport/40.jpeg","Sport/dogs4.jpg","Sport/eksn3.jpg"]' data-idx="3"><img src="Sport/eksn3.jpg" alt="" onerror="this.src='dogs4.jpg'"/></div>
+          </div>
         </div>
       </div>
 
-      <div class="prog-card">
-        <div class="prog-level">Level 04</div>
-        <div class="prog-name">Advanced — Tricks & Improvements</div>
-        <p class="prog-desc">The advanced obedience level is intended for dogs that have already completed the basic and intermediate stages. The program focuses on further developing control, creative exercises, tricks, and advanced commands that improve the dog's concentration, flexibility, and working motivation. Ideal for owners wanting a higher level of communication and mental stimulation.</p>
-        <div class="prog-tags">
-          <span class="prog-tag">Advanced Level</span>
-          <span class="prog-tag">Mental Stimulation</span>
-          <span class="prog-tag">Tricks &amp; Precision</span>
-        </div>
-      </div>
+    </div>
+  </div>
+</div>
 
+<!-- OBEDIENCE VIDEO SECTION -->
+<div class="ob-videos-section">
+  <div class="ob-videos-inner">
+    <p class="eyebrow" style="text-align:center;margin-bottom:8px;">Watch Us Work</p>
+    <h2 class="ob-videos-title">Obedience &amp; Protection <em>in Action</em></h2>
+    <div class="ob-videos-grid">
+      <a class="ob-video-card" href="https://www.youtube.com/watch?v=Sf3AHbmO_88" target="_blank" rel="noopener">
+        <div class="ob-video-wrap">
+          <img src="https://img.youtube.com/vi/Sf3AHbmO_88/hqdefault.jpg" alt="Obedience Training Video 1" loading="lazy"/>
+          <div class="ob-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.54 8.54 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.54 8.54 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.54 8.54 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.54 8.54 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+        </div>
+      </a>
+      <a class="ob-video-card" href="https://www.youtube.com/watch?v=pk2792eeGFo" target="_blank" rel="noopener">
+        <div class="ob-video-wrap">
+          <img src="https://img.youtube.com/vi/pk2792eeGFo/hqdefault.jpg" alt="Obedience Training Video 2" loading="lazy"/>
+          <div class="ob-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.54 8.54 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.54 8.54 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.54 8.54 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.54 8.54 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+        </div>
+      </a>
+      <a class="ob-video-card" href="https://www.youtube.com/watch?v=CTh1o4tL23Y" target="_blank" rel="noopener">
+        <div class="ob-video-wrap">
+          <img src="https://img.youtube.com/vi/CTh1o4tL23Y/hqdefault.jpg" alt="Obedience Training Video 3" loading="lazy"/>
+          <div class="ob-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.54 8.54 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.54 8.54 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.54 8.54 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.54 8.54 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -537,7 +775,8 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="training.html">Services</a></li>
-        <li><a href="dogs.html">Dogs</a></li>
+        <li><a href="available.html">Dogs for Sale</a></li>
+        <li><a href="ourstars.html">Our Stars</a></li>
         <li><a href="about.html">Founder</a></li>
         <li><a href="resort.html">Dog Resort</a></li>
       </ul>
@@ -557,7 +796,7 @@
     <div class="f-col">
       <div class="f-col-title">Contact</div>
       <ul class="f-links">
-        <li><a href="mailto:info@simpor.com">info@simpor.com</a></li>
+          <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
         <li><a href="#">Serbia · Europe · World</a></li>
         <li><a href="#">FCI 3428</a></li>
         <li><a href="#">Von Simpor Kennel</a></li>
@@ -570,5 +809,41 @@
     <div class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></div>
   </div>
 </footer>
+
+<!-- LIGHTBOX za galeriju u obedience sekciji -->
+<div id="trainLb">
+  <button class="tlb-close" onclick="closeTLb()">×</button>
+  <button class="tlb-prev" onclick="tLbNav(-1)">&#8592;</button>
+  <img id="trainLbImg" src="" alt=""/>
+  <button class="tlb-next" onclick="tLbNav(1)">&#8594;</button>
+</div>
+
+<script>
+var tLbImgs = [], tLbIdx = 0;
+function openTLb(el) {
+  tLbImgs = JSON.parse(el.dataset.imgs);
+  tLbIdx = parseInt(el.dataset.idx);
+  document.getElementById('trainLbImg').src = tLbImgs[tLbIdx];
+  document.getElementById('trainLb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeTLb() {
+  document.getElementById('trainLb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function tLbNav(dir) {
+  tLbIdx = (tLbIdx + dir + tLbImgs.length) % tLbImgs.length;
+  document.getElementById('trainLbImg').src = tLbImgs[tLbIdx];
+}
+document.getElementById('trainLb').addEventListener('click', function(e) {
+  if (e.target === this) closeTLb();
+});
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('trainLb').classList.contains('open')) return;
+  if (e.key === 'Escape') closeTLb();
+  if (e.key === 'ArrowLeft') tLbNav(-1);
+  if (e.key === 'ArrowRight') tLbNav(1);
+});
+</script>
 </body>
 </html>

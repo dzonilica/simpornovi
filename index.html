@@ -12,6 +12,78 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
+<style>
+/* ══ VIDEO SECTION ══ */
+.ob-videos-section {
+  background: var(--dark);
+  padding: 80px 0 90px;
+  border-top: 1px solid var(--border);
+}
+.ob-videos-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.ob-videos-title {
+  font-family: var(--font-d);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 52px;
+  letter-spacing: 0.02em;
+}
+.ob-videos-title em {
+  font-style: italic;
+  color: #fff;
+}
+.ob-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ob-video-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+.ob-video-card:hover { border-color: var(--gold); }
+.ob-video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.ob-video-wrap img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.ob-video-card:hover .ob-video-wrap img { transform: scale(1.05); }
+.ob-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.6));
+  pointer-events: none;
+}
+.ob-video-card:hover .ob-play-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  .ob-videos-grid { grid-template-columns: 1fr; }
+  .ob-videos-inner { padding: 0 24px; }
+}
+</style>
 </head>
 <body>
 
@@ -33,7 +105,8 @@
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="training.html" onclick="closeMobile()">Training</a>
   <a href="kennel.html" onclick="closeMobile()">Kennel</a>
-  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
+  <a href="available.html" onclick="closeMobile()">Dogs for Sale</a>
+  <a href="ourstars.html" onclick="closeMobile()">Our Stars</a>
   <a href="team.html" onclick="closeMobile()">Team</a>
   <a href="resort.html" onclick="closeMobile()">Resort</a>
   <a href="gallery.html" onclick="closeMobile()">Gallery</a>
@@ -61,7 +134,8 @@
     <li><a href="about.html">About</a></li>
     <li><a href="training.html">Training</a></li>
     <li><a href="kennel.html">Kennel</a></li>
-    <li class="nav-avail"><a href="dogs.html">Dogs</a></li>
+    <li class="nav-avail"><a href="available.html">Dogs for Sale</a></li>
+    <li><a href="ourstars.html">Our Stars</a></li>
     <li><a href="team.html">Team</a></li>
     <li><a href="resort.html">Resort</a></li>
     <li><a href="gallery.html">Gallery</a></li>
@@ -501,7 +575,33 @@
     </div>
   </div>
 </section>
-
+<!-- OBEDIENCE VIDEO SECTION -->
+<div class="ob-videos-section">
+  <div class="ob-videos-inner">
+    <p class="eyebrow" style="text-align:center;margin-bottom:8px;">Watch Us Work</p>
+    <h2 class="ob-videos-title">Obedience &amp; Protection <em>in Action</em></h2>
+    <div class="ob-videos-grid">
+      <a class="ob-video-card" href="https://www.youtube.com/watch?v=oDIMI04BGkc" target="_blank" rel="noopener">
+        <div class="ob-video-wrap">
+          <img src="https://img.youtube.com/vi/oDIMI04BGkc/hqdefault.jpg" alt="Obedience Training Video 1" loading="lazy"/>
+          <div class="ob-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.54 8.54 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.54 8.54 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.54 8.54 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.54 8.54 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+        </div>
+      </a>
+      <a class="ob-video-card" href="https://www.youtube.com/watch?v=i5SLVNTkXBg" target="_blank" rel="noopener">
+        <div class="ob-video-wrap">
+          <img src="https://img.youtube.com/vi/i5SLVNTkXBg/hqdefault.jpg" alt="Obedience Training Video 2" loading="lazy"/>
+          <div class="ob-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.54 8.54 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.54 8.54 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.54 8.54 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.54 8.54 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+        </div>
+      </a>
+      <a class="ob-video-card" href="https://www.youtube.com/watch?v=5_wgJuehaPQ" target="_blank" rel="noopener">
+        <div class="ob-video-wrap">
+          <img src="https://img.youtube.com/vi/5_wgJuehaPQ/hqdefault.jpg" alt="Obedience Training Video 3" loading="lazy"/>
+          <div class="ob-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74A8.54 8.54 0 0 0 60.7 1.9C55.4 0 34 0 34 0S12.6 0 7.3 1.9A8.54 8.54 0 0 0 1.48 7.74C0 13.07 0 24 0 24s0 10.93 1.48 16.26A8.54 8.54 0 0 0 7.3 46.1C12.6 48 34 48 34 48s21.4 0 26.7-1.9a8.54 8.54 0 0 0 5.82-5.84C68 34.93 68 24 68 24s0-10.93-1.48-16.26z" fill="#ff0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 <!-- ═══ RESORT TEASER ═══ -->
 <section id="resort-teaser">
   <img class="resort-bg" src="res1.jpg" alt="Simpor Dog Resort" onerror="this.src='pocetna2.jpg'"/>
@@ -552,7 +652,7 @@
           </div>
           <div class="c-item-body">
             <strong>Email</strong>
-            <span><a href="mailto:info@simpor.com">info@simpor.com</a></span>
+            <span><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></span>
           </div>
         </div>
         <div class="c-item">
@@ -617,7 +717,8 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="training.html">Services</a></li>
-          <li><a href="dogs.html">Dogs</a></li>
+          <li><a href="available.html">Dogs for Sale</a></li>
+          <li><a href="ourstars.html">Our Stars</a></li>
           <li><a href="about.html">Founder</a></li>
           <li><a href="resort.html">Dog Resort</a></li>
         </ul>
@@ -637,7 +738,7 @@
       <div class="f-col">
         <div class="f-col-title">Contact</div>
         <ul class="f-links">
-          <li><a href="mailto:info@simpor.com">info@simpor.com</a></li>
+          <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
           <li><a href="#">Serbia · Europe · World</a></li>
           <li><a href="#">FCI 3428</a></li>
           <li><a href="#">Von Simpor Kennel</a></li>
