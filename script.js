@@ -232,10 +232,16 @@ updateNavState();
    MOBILE MENU
 ══════════════════════════════════ */
 function toggleMobile() {
-  document.getElementById('mobileOverlay').classList.toggle('open');
+  const m = document.getElementById('mobileOverlay');
+  const h = document.querySelector('.hamburger');
+  if (m) m.classList.toggle('open');
+  if (h) h.classList.toggle('active');
 }
 function closeMobile() {
-  document.getElementById('mobileOverlay').classList.remove('open');
+  const m = document.getElementById('mobileOverlay');
+  const h = document.querySelector('.hamburger');
+  if (m) m.classList.remove('open');
+  if (h) h.classList.remove('active');
 }
 
 

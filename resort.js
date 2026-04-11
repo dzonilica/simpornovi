@@ -12,16 +12,16 @@ const loaderTL = gsap.timeline({
 });
 
 loaderTL
-  .from('#loaderIcon', { opacity: 0, scale: 0.5, rotation: -90, duration: 0.8, ease: 'back.out(1.4)' })
-  .from('#loaderLogo div:nth-child(2)', { opacity: 0, y: 10, duration: 0.5, ease: 'power2.out' }, '-=0.1')
-  .to('#loaderLine', { width: 110, duration: 0.7, ease: 'power2.inOut' }, '-=0.05')
-  .to('#loaderSub', { opacity: 1, y: 0, duration: 0.5 })
-  .to({}, { duration: 0.5 })
-  .to('#loaderLogo', { opacity: 0, y: -20, duration: 0.5, ease: 'power2.in' })
+  .from('#loaderIcon', { opacity: 0, scale: 0.6, duration: 0.55, ease: 'back.out(1.4)' })
+  .from('#loaderLogo div:nth-child(2)', { opacity: 0, y: 8, duration: 0.4 }, '-=0.1')
+  .to('#loaderLine', { width: 80, duration: 0.55, ease: 'power2.inOut' })
+  .to('#loaderSub', { opacity: 1, y: 0, duration: 0.4 }, '-=0.1')
+  .to({}, { duration: 0.4 })
+  .to('#loaderLogo', { opacity: 0, y: -18, duration: 0.4, ease: 'power2.in' })
   .to('#loaderPanelTop', {
-    scaleY: 0, duration: 1.0,
+    scaleY: 0, duration: 0.85,
     ease: 'power4.inOut', transformOrigin: 'top'
-  }, '-=0.1');
+  }, '-=0.08');
 
 
 /* ══════════════════════════════════
@@ -134,10 +134,16 @@ updateNavState();
    MOBILE MENU
 ══════════════════════════════════ */
 function toggleMobile() {
-  document.getElementById('mobileOverlay').classList.toggle('open');
+  const m = document.getElementById('mobileOverlay');
+  const h = document.querySelector('.hamburger');
+  if (m) m.classList.toggle('open');
+  if (h) h.classList.toggle('active');
 }
 function closeMobile() {
-  document.getElementById('mobileOverlay').classList.remove('open');
+  const m = document.getElementById('mobileOverlay');
+  const h = document.querySelector('.hamburger');
+  if (m) m.classList.remove('open');
+  if (h) h.classList.remove('active');
 }
 
 
