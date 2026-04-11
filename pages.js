@@ -88,8 +88,18 @@ function updateNavState() {
 }
 window.addEventListener('scroll', updateNavState, { passive: true });
 updateNavState();
-function toggleMobile() { const m=document.getElementById('mobileOverlay'); if(m) m.classList.toggle('open'); }
-function closeMobile() { const m=document.getElementById('mobileOverlay'); if(m) m.classList.remove('open'); }
+function toggleMobile() {
+  const m = document.getElementById('mobileOverlay');
+  const h = document.querySelector('.hamburger');
+  if (m) m.classList.toggle('open');
+  if (h) h.classList.toggle('active');
+}
+function closeMobile() {
+  const m = document.getElementById('mobileOverlay');
+  const h = document.querySelector('.hamburger');
+  if (m) m.classList.remove('open');
+  if (h) h.classList.remove('active');
+}
 
 /* LIGHTBOX */
 let lbImages = [], lbCurrent = 0;

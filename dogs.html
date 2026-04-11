@@ -29,7 +29,7 @@
   <a href="about.html" onclick="closeMobile()">About</a>
   <a href="training.html" onclick="closeMobile()">Training</a>
   <a href="kennel.html" onclick="closeMobile()">Kennel</a>
-  <a href="available.html" onclick="closeMobile()">Dogs</a>
+  <a href="dogs.html" onclick="closeMobile()">Dogs</a>
   <a href="team.html" onclick="closeMobile()">Team</a>
   <a href="resort.html" onclick="closeMobile()">Resort</a>
   <a href="gallery.html" onclick="closeMobile()">Gallery</a>
@@ -45,7 +45,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="training.html">Training</a></li>
     <li><a href="kennel.html">Kennel</a></li>
-    <li class="nav-avail"><a href="available.html" style="color:var(--gold)">Dogs</a></li>
+    <li class="nav-avail"><a href="dogs.html" style="color:var(--gold)">Dogs</a></li>
     <li><a href="team.html">Team</a></li>
     <li><a href="resort.html">Resort</a></li>
     <li><a href="gallery.html">Gallery</a></li>
@@ -54,23 +54,20 @@
   <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- PAGE HERO — STRIPS -->
-<div class="hero-strips" id="pageHero">
-  <div class="strips-bg">
-    <div class="strip-img"><img src="pocetna1.jpg" alt="Training"/></div>
-    <div class="strip-img"><img src="psi1.jpg" alt="Dogs"/></div>
-    <div class="strip-img"><img src="IMG-20251225-WA0030.jpg" alt="Championship"/></div>
-  </div>
-  <div class="strips-overlay"></div>
-  <div class="hero-strips-content">
-    <div class="page-breadcrumb" style="opacity:1;transform:none;margin-bottom:22px;">
+<!-- PAGE HERO — SINGLE IMAGE -->
+<div class="page-hero" id="pageHero">
+  <img class="page-hero-bg" src="dogs.jpg" alt="Simpor Dogs"/>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-overlay-b"></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb" style="opacity:1;transform:none;">
       <a href="index.html">Simpor</a><span class="bc-sep">›</span><span>Dogs</span>
     </div>
-    <div class="page-tag" style="opacity:1;transform:none;margin-bottom:26px;">Von Simpor · FCI 3428</div>
+    <div class="page-tag" style="opacity:1;transform:none;">Von Simpor · FCI 3428</div>
     <h1 class="page-hero-h1" style="font-size:clamp(50px,8vw,100px);">
       Our <em>Dogs</em>
     </h1>
-    <p class="page-hero-sub" style="opacity:1;transform:none;margin-top:20px;max-width:520px;">
+    <p class="page-hero-sub" style="opacity:1;transform:none;max-width:520px;">
       Carefully selected dogs with proven genetics and outstanding working qualities — for sport, K9, protection, or family life.
     </p>
   </div>
@@ -85,7 +82,7 @@
 
       <!-- Our Dogs -->
       <a href="#our-dogs" class="dogs-panel">
-        <img src="psi1.jpg" alt="Our Dogs"/>
+        <img src="dogs2.jpg" alt="Our Dogs"/>
         <div class="dogs-panel-overlay"></div>
         <div class="dogs-panel-content">
           <div class="dogs-panel-tag">Program Dogs</div>
@@ -97,7 +94,7 @@
 
       <!-- Available Dogs — FEATURED -->
       <a href="available.html" class="dogs-panel available">
-        <img src="pas1.jpg" alt="Available Dogs"/>
+        <img src="pup2.jpg" alt="Available Dogs"/>
         <div class="dogs-panel-overlay"></div>
         <div class="dogs-panel-content">
           <div class="dogs-panel-tag">Now Available</div>
@@ -109,7 +106,7 @@
 
       <!-- Puppies -->
       <a href="puppies.html" class="dogs-panel">
-        <img src="IMG-20251225-WA0035.jpg" alt="Puppies"/>
+        <img src="pup1.jpg" alt="Puppies"/>
         <div class="dogs-panel-overlay"></div>
         <div class="dogs-panel-content">
           <div class="dogs-panel-tag">Von Simpor Litters</div>
@@ -133,22 +130,22 @@
     </p>
     <div class="dogs-photo-grid">
       <div class="clip-reveal" style="overflow:hidden;height:340px;background:var(--card);">
-        <img src="1.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+        <img src="g15.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
       </div>
       <div class="clip-reveal" style="overflow:hidden;height:340px;background:var(--card);">
-        <img src="2.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+        <img src="g16.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
       </div>
       <div class="clip-reveal" style="overflow:hidden;height:340px;background:var(--card);">
-        <img src="3.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+        <img src="g15.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
       </div>
       <div class="clip-reveal" style="overflow:hidden;height:280px;background:var(--card);">
-        <img src="4.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+        <img src="eksn3.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
       </div>
       <div class="clip-reveal" style="overflow:hidden;height:280px;background:var(--card);">
-        <img src="5.jpeg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+        <img src="dogs3.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
       </div>
       <div class="clip-reveal" style="overflow:hidden;height:280px;background:var(--card);">
-        <img src="DSC_9865.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
+        <img src="dogs4.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.8s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Simpor Dog"/>
       </div>
     </div>
   </div>
@@ -158,23 +155,80 @@
 <div class="page-cta" style="margin-top:0;">
   <h2>Looking for a Dog?</h2>
   <p>Browse our currently available dogs — for sport, K9 work, protection, or family life.</p>
-  <a href="available.html" class="btn-dark">View Available Dogs →</a>
+  <a href="available.html" class="btn-gold">View Available Dogs →</a>
 </div>
 
-<footer class="inner-footer">
-  <div class="inner-footer-top">
-    <div class="inner-footer-logo">SIM<em>POR</em></div>
-    <nav class="inner-footer-nav">
-      <a href="index.html">Home</a><a href="about.html">About</a>
-      <a href="training.html">Training</a><a href="kennel.html">Kennel</a>
-      <a href="available.html">Dogs</a><a href="puppies.html">Puppies</a>
-      <a href="team.html">Team</a><a href="resort.html">Dog Resort</a>
-      <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
-    </nav>
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc">Professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+      <div class="f-socials">
+        <a href="https://www.instagram.com/simpor_dogcentar/" target="_blank" class="f-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/simpor_dog_resort/" target="_blank" class="f-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/simpork9/?locale=sr_RS" target="_blank" class="f-soc" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@simpordogcenter" target="_blank" class="f-soc" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96C1 8.13 1 12 1 12s0 3.87.46 5.58a2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.97C23 15.87 23 12 23 12s0-3.87-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-title">Navigation</div>
+      <ul class="f-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="training.html">Services</a></li>
+        <li><a href="dogs.html">Dogs</a></li>
+        <li><a href="about.html">Founder</a></li>
+        <li><a href="resort.html">Dog Resort</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-title">Services</div>
+      <ul class="f-links">
+        <li><a href="training.html">Sport & Competition</a></li>
+        <li><a href="training.html">Kennel & Breeding</a></li>
+        <li><a href="training.html">K9 & Protection</a></li>
+        <li><a href="training.html">Family Dogs</a></li>
+        <li><a href="#contact">Training</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-title">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:info@simpor.com">info@simpor.com</a></li>
+        <li><a href="#">Serbia · Europe · World</a></li>
+        <li><a href="#">FCI 3428</a></li>
+        <li><a href="#">Von Simpor Kennel</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="inner-footer-bottom">
-    <span>© 2025 Simpor Dog Center. All rights reserved.</span>
-    <span class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></span>
+
+  <div class="footer-bottom">
+    <div class="f-bottom-left">© 2026 Simpor Dog Center. All rights reserved.</div>
+    <div class="f-fci-badge">FCI <span>3428</span> · Est. <span>1994</span></div>
   </div>
 </footer>
 </body>
